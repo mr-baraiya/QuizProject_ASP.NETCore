@@ -1,52 +1,64 @@
-# Prerequisites
-*.d
+# Ignore NiceAdmin themes
+/NiceAdmin/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Ignore build outputs
+bin/
+obj/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Ignore packages and dependencies
+packages/
+*.nuget.props
+*.nuget.targets
 
-# Precompiled Headers
-*.gch
-*.pch
+# Ignore logs
+*.log
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Ignore User-specific files
+*.user
+*.suo
+*.swp
+*.sln.docstates
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Ignore publish outputs
+wwwroot/
+wwwroot/dist/
+wwwroot/lib/
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Ignore configuration files
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Ignore temporary files
+*.tmp
+*.temp
+*.cache
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Ignore Visual Studio specific files
+.vscode/
+.idea/
+*.vs/
+*.csproj.user
+*.dbmdl
+*.opendb
+
+# Ignore Resharper and Rider
+_ReSharper*/
+*.DotSettings.user
+
+# Ignore Coverage Results
+*.coverage
+*.coveragexml
+coverage/
+
+# Ignore deployment-related files
+.publish/
+
+# Ignore NuGet packages
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Ignore other system files
+Thumbs.db
+.DS_Store
