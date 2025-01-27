@@ -1,0 +1,346 @@
+
+----------------------------- user --------------------------------------------------
+CREATE TABLE [User] (
+    UserID INT PRIMARY KEY IDENTITY(1,1), 
+    UserName NVARCHAR(100) NOT NULL,      
+    Password NVARCHAR(100) NOT NULL,      
+    Email NVARCHAR(100) NOT NULL,         
+    Mobile NVARCHAR(100) NOT NULL,        
+    IsActive BIT NOT NULL,                
+    Created DATETIME DEFAULT GETDATE(),   
+    Modified DATETIME                     
+);
+
+
+--1 select all from user
+create or alter procedure [dbo].[PR_User_SelectAll] 
+as 
+
+select	*
+
+from [dbo].[User]
+ORDER BY [dbo].[User].UserName
+
+
+
+--2 select all from user by pk
+create or alter procedure [dbo].[PR_User_SelectByPk]
+
+@Userid int
+as 
+
+select * from [dbo].[User]
+where [dbo].[User].[UserID] = @Userid
+
+--3 insert into user
+CREATE PROCEDURE [dbo].[PR_User_Insert]
+    @UserName NVARCHAR(100),
+    @Password NVARCHAR(100),
+    @Email NVARCHAR(100),
+    @Mobile NVARCHAR(100),
+    @IsActive BIT,
+    @Created DATETIME,
+    @Modified DATETIME
+AS
+BEGIN
+    INSERT INTO [dbo].[User] (UserName, Password, Email, Mobile, IsActive, Created, Modified)
+    VALUES (@UserName, @Password, @Email, @Mobile, @IsActive, @Created, @Modified);
+END
+
+--4 update user
+CREATE OR ALTER PROCEDURE [dbo].[PR_User_Update]
+    @Id INT,
+    @UserName NVARCHAR(100),
+    @Password NVARCHAR(100),
+    @Email NVARCHAR(100),
+    @Mobile NVARCHAR(100),
+    @IsActive BIT,
+    @Created DATETIME,
+    @Modified DATETIME
+AS
+BEGIN
+    UPDATE [dbo].[User]
+    SET UserName = @UserName,
+        Password = @Password,
+        Email = @Email,
+        Mobile = @Mobile,
+        IsActive = @IsActive,
+        Created = @Created,
+        Modified = @Modified
+    WHERE UserID = @Id;
+END
+
+--5 delete user
+CREATE OR ALTER PROCEDURE [dbo].[PR_User_Delete]
+    @Id INT
+AS
+BEGIN
+    DELETE FROM [dbo].[User]
+    WHERE UserID = @Id;
+END
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------- Quiz --------------------------------------------------
+CREATE TABLE Quiz (
+    QuizID INT NOT NULL PRIMARY KEY,
+    QuizName NVARCHAR(100) NOT NULL,
+    TotalQuestions NVARCHAR(100) NOT NULL,
+    UserID INT NOT NULL,
+    Created DATETIME DEFAULT GETDATE(),
+    Modified DATETIME NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES [User](UserID)
+);
+
+--1 Procedure to select all quizzes
+CREATE or alter PROCEDURE [dbo].[PR_quiz_SelectAll]
+AS 
+BEGIN
+    SELECT * FROM [dbo].[Quiz];
+END
+
+
+--2 Procedure to get a quiz by ID
+CREATE or alter PROCEDURE [dbo].[PR_Quiz_getbyID]
+    @Quizid INT
+AS 
+BEGIN 
+    SELECT * FROM [dbo].[Quiz]
+    WHERE QuizID = @Quizid;
+END
+
+
+--3 Procedure to insert a new quiz
+CREATE or alter PROCEDURE [dbo].[PR_Quiz_entry]
+    @Quizname NVARCHAR(100),
+    @TotalQuestions INT
+AS
+BEGIN
+    INSERT INTO [dbo].[Quiz] (QuizName, TotalQuestions)
+    VALUES (@Quizname, @TotalQuestions);
+END
+
+
+--4 Procedure to update a quiz
+CREATE or alter PROCEDURE [dbo].[PR_Quiz_update]
+    @Quizid INT,
+    @Quizname NVARCHAR(100),
+    @Totalquestions INT
+AS
+BEGIN
+    UPDATE [dbo].[Quiz]
+    SET QuizName = @Quizname, TotalQuestions = @Totalquestions
+    WHERE QuizID = @Quizid;
+END
+ 
+
+--5 Procedure to delete a quiz
+CREATE or alter PROCEDURE [dbo].[PR_quiz_delete]
+    @Quizid INT
+AS
+BEGIN
+    DELETE FROM [dbo].[Quiz]
+    WHERE QuizID = @Quizid;
+END
+ 
+
+
+ 
+
+
+
+
+
+----------------------------- Question --------------------------------------------------
+
+CREATE TABLE Question (
+    QuestionID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    QuestionText NVARCHAR(100) NOT NULL,
+    OptionA NVARCHAR(100) NOT NULL,
+    OptionB NVARCHAR(100) NOT NULL,
+    OptionC NVARCHAR(100) NOT NULL,
+    OptionD NVARCHAR(100) NOT NULL,
+    CorrectOption NVARCHAR(100) NOT NULL,
+    QuizID INT NOT NULL,
+    UserID INT NOT NULL,
+    Created DATETIME DEFAULT GETDATE(),
+    Modified DATETIME NOT NULL,
+    FOREIGN KEY (QuizID) REFERENCES Quiz(QuizID),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID)
+);
+
+--1 select all from question
+CREATE OR ALTER PROCEDURE [dbo].[PR_Question_SelectAll]
+AS
+BEGIN
+    SELECT * FROM [dbo].[Question]
+END
+
+--2 select all from question by id
+CREATE OR ALTER PROCEDURE [dbo].[PR_Question_SelectById]
+    @QuestionID INT
+AS
+BEGIN
+    SELECT * FROM [dbo].[Question]
+    WHERE QuestionID = @QuestionID;
+END
+
+
+--3	insert into question
+CREATE OR ALTER PROCEDURE [dbo].[PR_Question_Insert]
+    @QuestionText NVARCHAR(100),
+    @OptionA NVARCHAR(100),
+    @OptionB NVARCHAR(100),
+    @OptionC NVARCHAR(100),
+    @OptionD NVARCHAR(100),
+    @CorrectOption NVARCHAR(1),
+    @QuizID INT,
+    @UserID INT,
+    @Modified DATETIME
+AS
+BEGIN
+    INSERT INTO [dbo].[Question] 
+        (QuestionText, OptionA, OptionB, OptionC, OptionD, CorrectOption, QuizID, UserID, Modified)
+    VALUES
+        (@QuestionText, @OptionA, @OptionB, @OptionC, @OptionD, @CorrectOption, @QuizID, @UserID, @Modified);
+END
+
+
+--4 update question
+CREATE OR ALTER PROCEDURE [dbo].[PR_Question_Update]
+    @QuestionID INT,
+    @QuestionText NVARCHAR(100),
+    @OptionA NVARCHAR(100),
+    @OptionB NVARCHAR(100),
+    @OptionC NVARCHAR(100),
+    @OptionD NVARCHAR(100),
+    @CorrectOption NVARCHAR(1),
+    @QuizID INT,
+    @UserID INT,
+    @Modified DATETIME
+AS
+BEGIN
+    UPDATE [dbo].[Question]
+    SET QuestionText = @QuestionText,
+        OptionA = @OptionA,
+        OptionB = @OptionB,
+        OptionC = @OptionC,
+        OptionD = @OptionD,
+        CorrectOption = @CorrectOption,
+        QuizID = @QuizID,
+        UserID = @UserID,
+        Modified = @Modified
+    WHERE QuestionID = @QuestionID;
+END
+
+
+--5 delete question
+CREATE OR ALTER PROCEDURE [dbo].[PR_Question_Delete]
+    @QuestionID INT
+AS
+BEGIN
+    DELETE FROM [dbo].[Question]
+    WHERE QuestionID = @QuestionID;
+END
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------- QuizAttempt --------------------------------------------------
+
+CREATE TABLE QuizAttempt (
+    AttemptID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    QuizID INT NOT NULL,
+    Score DECIMAL(10,2) NOT NULL,
+    AttemptDate DATETIME NOT NULL,
+    UserID INT NOT NULL,
+    Created DATETIME DEFAULT GETDATE(),
+    Modified DATETIME NOT NULL,
+    FOREIGN KEY (QuizID) REFERENCES Quiz(QuizID),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID)
+);
+
+--1 select all from QuizAttempt
+CREATE OR ALTER PROCEDURE [dbo].[PR_QuizAttempt_SelectAll]
+AS
+BEGIN
+    SELECT * FROM [dbo].[QuizAttempt]
+END
+
+
+--2 select all from QuizAttempt by id
+CREATE OR ALTER PROCEDURE [dbo].[PR_QuizAttempt_SelectById]
+    @AttemptID INT
+AS
+BEGIN
+    SELECT * FROM [dbo].[QuizAttempt]
+    WHERE AttemptID = @AttemptID;
+END
+
+
+--3	insert into QuizAttempt
+CREATE OR ALTER PROCEDURE [dbo].[PR_QuizAttempt_Insert]
+    @QuizID INT,
+    @Score DECIMAL(10, 2),
+    @AttemptDate DATETIME,
+    @UserID INT,
+    @Modified DATETIME
+AS
+BEGIN
+    INSERT INTO [dbo].[QuizAttempt] (QuizID, Score, AttemptDate, UserID, Modified)
+    VALUES (@QuizID, @Score, @AttemptDate, @UserID, @Modified);
+END
+
+
+--4 update QuizAttempt
+CREATE OR ALTER PROCEDURE [dbo].[PR_QuizAttempt_Update]
+    @AttemptID INT,
+    @QuizID INT,
+    @Score DECIMAL(10, 2),
+    @AttemptDate DATETIME,
+    @UserID INT,
+    @Modified DATETIME
+AS
+BEGIN
+    UPDATE [dbo].[QuizAttempt]
+    SET QuizID = @QuizID,
+        Score = @Score,
+        AttemptDate = @AttemptDate,
+        UserID = @UserID,
+        Modified = @Modified
+    WHERE AttemptID = @AttemptID;
+END
+
+
+--5 delete QuizAttempt
+
+CREATE OR ALTER PROCEDURE [dbo].[PR_QuizAttempt_Delete]
+    @AttemptID INT
+AS
+BEGIN
+    DELETE FROM [dbo].[QuizAttempt]
+    WHERE AttemptID = @AttemptID;
+END
+
+
+
