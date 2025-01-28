@@ -1,3 +1,15 @@
 <main role="main" class="pb-3">
     @RenderBody()
 </main>
+
+1. Microsoft.EntityFrameworkCore
+2. Microsoft.EntityFrameworkCore.SqlServer
+3. Microsoft.EntityFrameworkCore.Tools
+
+"myCon": "server=DESKTOP-VISHAL\\SQLEXPRESS;user id=vishal;password=12345;database=[CSE_4A_223];TrustServerCertificate=True" -> appsettings.json
+Data Source=DESKTOP-VISHAL\\SQLEXPRESS;Initial Catalog=QUIZ;Integrated Security=true;"
+
+builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myCon"))); -> in Program.cs
+
+add-migration first
+use Remove-Migration

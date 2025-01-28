@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS_CODES\\.NET_Code\\Project\\My_Project_dotNET\\My_Project_dotNET.csproj": {}
+    "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\My_Project_dotNET.csproj": {}
   },
   "projects": {
-    "D:\\VS_CODES\\.NET_Code\\Project\\My_Project_dotNET\\My_Project_dotNET.csproj": {
+    "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\My_Project_dotNET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS_CODES\\.NET_Code\\Project\\My_Project_dotNET\\My_Project_dotNET.csproj",
+        "projectUniqueName": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\My_Project_dotNET.csproj",
         "projectName": "My_Project_dotNET",
-        "projectPath": "D:\\VS_CODES\\.NET_Code\\Project\\My_Project_dotNET\\My_Project_dotNET.csproj",
+        "projectPath": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\My_Project_dotNET.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\VS_CODES\\.NET_Code\\Project\\My_Project_dotNET\\obj\\",
+        "outputPath": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
