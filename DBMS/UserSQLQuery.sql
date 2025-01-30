@@ -1,99 +1,151 @@
 -- use QUIZ
 
-CREATE TABLE [User] (
-    UserID INT PRIMARY KEY IDENTITY(1,1), 
-    UserName NVARCHAR(100) NOT NULL,      
-    Password NVARCHAR(100) NOT NULL,      
-    Email NVARCHAR(100) NOT NULL,         
-    Mobile NVARCHAR(100) NOT NULL,        
-    IsActive BIT NOT NULL,                
-    Created DATETIME DEFAULT GETDATE(),   
-    Modified DATETIME                     
+CREATE TABLE [MST_User] (
+    [UserID]		INT PRIMARY KEY IDENTITY(1,1)
+    ,[UserName]		NVARCHAR(100) NOT NULL      
+    ,[Password]		NVARCHAR(100) NOT NULL      
+    ,[Email]		NVARCHAR(100) NOT NULL         
+    ,[Mobile]		NVARCHAR(100) NOT NULL     
+    ,[IsActive]		BIT NOT NULL DEFAULT 1
+	,[IsAdmin]		BIT NOT NULL DEFAULT 0
+    ,[Created]		DATETIME DEFAULT GETDATE()   
+    ,[Modified]		DATETIME                     
 );
 
-INSERT INTO [User] (UserName, Password, Email, Mobile, IsActive, Created, Modified)
-VALUES
-('JohnDoe', 'Password123', 'johndoe@example.com', '1234567890', 1, GETDATE(), NULL),
-('JaneSmith', 'Jane@2025', 'janesmith@example.com', '0987654321', 1, GETDATE(), NULL),
-('MikeBrown', 'Mike#2025', 'mikebrown@example.com', '1122334455', 0, GETDATE(), NULL),
-('EmilyClark', 'Emily@2025', 'emilyclark@example.com', '5566778899', 1, GETDATE(), NULL),
-('ChrisEvans', 'Chris@123', 'chrisevans@example.com', '6677889900', 1, GETDATE(), NULL),
-('SarahJohnson', 'Sarah2025!', 'sarahjohnson@example.com', '7788990011', 0, GETDATE(), NULL),
-('DavidWilson', 'David2025*', 'davidwilson@example.com', '8899001122', 1, GETDATE(), NULL),
-('LauraLee', 'Laura@2025!', 'lauralee@example.com', '9900112233', 1, GETDATE(), NULL),
-('KevinWright', 'Kevin#2025', 'kevinwright@example.com', '1011121314', 0, GETDATE(), NULL),
-('SophiaMiller', 'Sophia2025#', 'sophiamiller@example.com', '1413121110', 1, GETDATE(), NULL);
+--INSERT INTO [MST_User]
+--VALUES
+--('JohnDoe', 'Password123', 'johndoe@example.com', '1234567890', 1, 1, GETDATE(), NULL),
+--('JaneSmith', 'Jane@2025', 'janesmith@example.com', '0987654321', 1, 1, GETDATE(), NULL),
+--('MikeBrown', 'Mike#2025', 'mikebrown@example.com', '1122334455', 0, 0, GETDATE(), NULL),
+--('EmilyClark', 'Emily@2025', 'emilyclark@example.com', '5566778899', 1, 0, GETDATE(), NULL),
+--('ChrisEvans', 'Chris@123', 'chrisevans@example.com', '6677889900', 1, 0, GETDATE(), NULL),
+--('SarahJohnson', 'Sarah2025!', 'sarahjohnson@example.com', '7788990011', 0, 0, GETDATE(), NULL),
+--('DavidWilson', 'David2025*', 'davidwilson@example.com', '8899001122', 1, 0, GETDATE(), NULL),
+--('LauraLee', 'Laura@2025!', 'lauralee@example.com', '9900112233', 1, 0, GETDATE(), NULL),
+--('KevinWright', 'Kevin#2025', 'kevinwright@example.com', '1011121314', 0, 0, GETDATE(), NULL),
+--('SophiaMiller', 'Sophia2025#', 'sophiamiller@example.com', '1413121110', 1, 0, GETDATE(), NULL);
 
-select * from [dbo].[User];
+--select * from [dbo].[MST_User];
 
---1 select all from user
--- exec [dbo].[PR_User_SelectAll]
-create or alter procedure [dbo].[PR_User_SelectAll] 
-as 
-begin
-	select	*
-	from [dbo].[User]
-	ORDER BY [dbo].[User].UserName
-end
+-------------------------------------MST_User--------------------------------
 
---2 select all from user by pk
--- exec [dbo].[PR_User_SelectByPk] 1
-create or alter procedure [dbo].[PR_User_SelectByPk]
-@Userid int
-as 
-begin
-	select * from [dbo].[User]
-	where [dbo].[User].[UserID] = @Userid
-end
+	------------------SelectAll-------------------------
+	--EXEC [dbo].[PR_MST_User_SelectAll]
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_SelectAll]
+	AS
+	BEGIN
+		SELECT 
+			[dbo].[MST_User].[UserID]
+			,[dbo].[MST_User].[UserName]
+			,[dbo].[MST_User].[Password]
+			,[dbo].[MST_User].[Email]
+			,[dbo].[MST_User].[Mobile]
+			,[dbo].[MST_User].[IsActive]
+			,[dbo].[MST_User].[IsAdmin]
+			,[dbo].[MST_User].[Created]
+			,[dbo].[MST_User].[Modified]
+		FROM [dbo].[MST_User]
+		ORDER BY [dbo].[MST_User].[UserName]
+	END
 
---3 insert into user
--- exec [dbo].[PR_User_Insert] 'KevinWright', 'Kevin#2025', 'kevinwright@example.com', '1011121314', 0, NULL , NULL
-CREATE OR ALTER PROCEDURE [dbo].[PR_User_Insert]
-    @UserName NVARCHAR(100),
-    @Password NVARCHAR(100),
-    @Email NVARCHAR(100),
-    @Mobile NVARCHAR(100),
-    @IsActive BIT,
-    @Created DATETIME,
-    @Modified DATETIME
-AS
-BEGIN
-    INSERT INTO [dbo].[User] (UserName, Password, Email, Mobile, IsActive, Created, Modified)
-    VALUES (@UserName, @Password, @Email, @Mobile, @IsActive, @Created, @Modified);
-END
+	------------------SelectByPK-------------------------
+	--EXEC [dbo].[PR_MST_User_SelectByPK] 1
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_SelectByPK]
+		@userid INT
+	AS
+	BEGIN
+		SELECT 
+			[dbo].[MST_User].[UserID]
+			,[dbo].[MST_User].[UserName]
+			,[dbo].[MST_User].[Password]
+			,[dbo].[MST_User].[Email]
+			,[dbo].[MST_User].[Mobile]
+			,[dbo].[MST_User].[IsActive]
+			,[dbo].[MST_User].[IsAdmin]
+			,[dbo].[MST_User].[Created]
+			,[dbo].[MST_User].[Modified]
+		FROM [dbo].[MST_User]
+		WHERE [dbo].[MST_User].[UserID] = @userid
+	END
 
+	------------------INSERT-------------------------
+	--EXEC [dbo].[PR_MST_User_Insert] 'SophiaMiller', 'Sophia2025#', 'sophiamiller@example.com', '1413121110', 0
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_Insert]
+		@username		NVARCHAR(100)
+		,@password		NVARCHAR(100)
+		,@email			NVARCHAR(100)
+		,@mobile		NVARCHAR(100)
+		,@isadmin		BIT
+	AS
+	BEGIN
+		INSERT INTO [dbo].[MST_User]
+		(
+			[dbo].[MST_User].[UserName]
+			,[dbo].[MST_User].[Password] 
+			,[dbo].[MST_User].[Email]
+			,[dbo].[MST_User].[Mobile] 
+			,[dbo].[MST_User].[IsAdmin]
+		)
+		VALUES (
+			@username
+			,@password 
+			,@email
+			,@mobile 
+			,@isadmin
+		)
+	END
 
---4 update user
--- exec [dbo].[PR_User_Update] 11, 'Kai', 'Kevin#2025', 'kevinwright@example.com', '1011121314', 0, NULL , NULL
-CREATE OR ALTER PROCEDURE [dbo].[PR_User_Update]
-    @Id INT,
-    @UserName NVARCHAR(100),
-    @Password NVARCHAR(100),
-    @Email NVARCHAR(100),
-    @Mobile NVARCHAR(100),
-    @IsActive BIT,
-    @Created DATETIME,
-    @Modified DATETIME
-AS
-BEGIN
-    UPDATE [dbo].[User]
-    SET UserName = @UserName,
-        Password = @Password,
-        Email = @Email,
-        Mobile = @Mobile,
-        IsActive = @IsActive,
-        Created = @Created,
-        Modified = @Modified
-    WHERE UserID = @Id;
-END
+	------------------UPDATE-------------------------
+	--EXEC [dbo].[PR_MST_User_Update] 11 , 'Sophia Miller', 'Sophia2025#', 'sophiamiller@example.com', '1413121110', 1, 0
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_Update]
+		@userid			INT
+		,@username		NVARCHAR(100)
+		,@password		NVARCHAR(100)
+		,@email			NVARCHAR(100)
+		,@mobile		NVARCHAR(100)
+		,@isactive		BIT
+		,@isadmin		BIT
+	AS
+	BEGIN
+		UPDATE [dbo].[MST_User]
+		SET
+			[dbo].[MST_User].[UserName]		=	@username
+			,[dbo].[MST_User].[Password]	=	@password
+			,[dbo].[MST_User].[Email]		=	@email
+			,[dbo].[MST_User].[Mobile]		=	@mobile
+			,[dbo].[MST_User].[IsActive]	=	@isactive
+			,[dbo].[MST_User].[IsAdmin]		=	@isadmin
+			,[dbo].[MST_User].[Modified]	=	GETDATE()
+		WHERE [dbo].[MST_User].[UserID]		=	@userid
+	END
 
---5 delete user
--- exec [dbo].[PR_User_Delete] 12
-CREATE OR ALTER PROCEDURE [dbo].[PR_User_Delete]
-    @Id INT
-AS
-BEGIN
-    DELETE FROM [dbo].[User]
-    WHERE UserID = @Id;
-END
- 
+	------------------DELETE-------------------------
+	--EXEC [dbo].[PR_MST_User_Delete] 11
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_Delete]
+		@userid INT
+	AS
+	BEGIN
+		DELETE 
+		FROM [dbo].[MST_User]
+		WHERE [dbo].[MST_User].[UserID] = @userid
+	END
+
+	-----------------SelectByUserNamePassword-------------------------
+	--EXEC [dbo].[PR_MST_User_SelectByUserNamePassword] 'JohnDoe', 'Password123'
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_SelectByUserNamePassword]
+		@username	NVARCHAR(100)
+		,@password	NVARCHAR(100)
+	AS
+	BEGIN
+		SELECT
+			[dbo].[MST_User].[UserName]
+			,[dbo].[MST_User].[Password]
+		FROM [dbo].[MST_User]
+		WHERE (
+				[dbo].[MST_User].[UserName]		=	 @username OR 
+				[dbo].[MST_User].[Email]		=	 @username OR 
+				[dbo].[MST_User].[Mobile]		=	 @username
+			) 
+			AND 
+			[dbo].[MST_User].[Password]			=	 @password
+	END

@@ -1,77 +1,117 @@
-CREATE TABLE Quiz (
-    QuizID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    QuizName NVARCHAR(100) NOT NULL,
-    TotalQuestions NVARCHAR(100) NOT NULL,
-    UserID INT NOT NULL,
-    Created DATETIME DEFAULT GETDATE(),
-    Modified DATETIME,
-    FOREIGN KEY (UserID) REFERENCES [User](UserID)
+-- use QUIZ
+
+CREATE TABLE [MST_Quiz] (
+    QuizID					INT NOT NULL PRIMARY KEY IDENTITY(1,1)
+    ,QuizName				NVARCHAR(100) NOT NULL
+    ,TotalQuestions			NVARCHAR(100) NOT NULL
+	,QuizDate				DATETIME NOT NULL
+    ,UserID					INT NOT NULL 
+    ,Created				DATETIME DEFAULT GETDATE()
+    ,Modified				DATETIME
+	,FOREIGN KEY (UserID)	REFERENCES [dbo].[MST_User](UserID)
 );
 
-INSERT INTO Quiz (QuizName, TotalQuestions, UserID, Created, Modified)
-VALUES
-('General Knowledge Quiz', 20, 1, GETDATE(), NULL),
-('Science Trivia', 15, 2, GETDATE(), NULL),
-('History Challenge', 10, 3, GETDATE(), NULL),
-('Math Genius Test', 25, 4, GETDATE(), NULL),
-('Literature Quiz', 18, 5, GETDATE(), NULL),
-('Geography Quiz', 12, 6, GETDATE(), NULL),
-('Programming Basics', 30, 7, GETDATE(), NULL),
-('Music and Arts', 22, 8, GETDATE(), NULL),
-('World Sports Quiz', 16, 9, GETDATE(), NULL),
-('Space Exploration', 20, 10, GETDATE(), NULL);
+--INSERT INTO [MST_Quiz] (QuizName, TotalQuestions, QuizDate, UserID)
+--VALUES
+--('General Knowledge Quiz', 20, '1-1-2025', 1),
+--('Science Trivia', 15, '1-1-2025', 2);
+--select * from [MST_Quiz];
 
-select * from Quiz;
---1 Procedure to select all quizzes
--- exec [dbo].[PR_quiz_SelectAll]
-CREATE or alter PROCEDURE [dbo].[PR_quiz_SelectAll]
-AS 
-BEGIN
-    SELECT * FROM [dbo].[Quiz];
-END
+-------------------------------------MST_Quiz--------------------------------
+	
+	------------------SelectAll-------------------------
+	--EXEC [dbo].[PR_MST_Quiz_SelectAll]
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Quiz_SelectAll]
+	AS
+	BEGIN
+		SELECT 
+			[dbo].[MST_Quiz].[QuizID]
+			,[dbo].[MST_Quiz].[QuizName]
+			,[dbo].[MST_Quiz].[TotalQuestions]
+			,[dbo].[MST_Quiz].[QuizDate]
+			,[dbo].[MST_Quiz].[UserID]
+			,[dbo].[MST_User].[UserName]
+			,[dbo].[MST_Quiz].[Created]
+			,[dbo].[MST_Quiz].[Modified]
+		FROM [dbo].[MST_Quiz]
+		JOIN [dbo].[MST_User] 
+		ON [dbo].[MST_Quiz].[UserID] = [dbo].[MST_User].[UserID]
+		ORDER BY [dbo].[MST_Quiz].[QuizName],[dbo].[MST_User].[UserName]
+	END
+	
+	------------------SelectByPK-------------------------
+	--EXEC [dbo].[PR_MST_Quiz_SelectByPK] 3
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Quiz_SelectByPK]
+		@quizid INT
+	AS
+	BEGIN
+		SELECT 
+			[dbo].[MST_Quiz].[QuizID]
+			,[dbo].[MST_Quiz].[QuizName]
+			,[dbo].[MST_Quiz].[TotalQuestions]
+			,[dbo].[MST_Quiz].[UserID]
+			,[dbo].[MST_User].[UserName]
+			,[dbo].[MST_Quiz].[Created]
+			,[dbo].[MST_Quiz].[Modified]
+		FROM [dbo].[MST_Quiz]
+		
+		JOIN [dbo].[MST_User] 
+		ON [dbo].[MST_Quiz].[UserID] = [dbo].[MST_User].[UserID]
+		
+		WHERE [dbo].[MST_Quiz].[QuizID] = @quizid
+	END
 
+	------------------INSERT-------------------------
+	--EXEC [dbo].[PR_MST_Quiz_Insert] 'Science Trivia', 15, '1-1-2025', 5
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Quiz_Insert]
+		@quizname			NVARCHAR(100)
+		,@totalquestions	INT
+		,@quizdate			DATETIME
+		,@userid			INT
+	AS
+	BEGIN
+		INSERT INTO [dbo].[MST_Quiz]
+		(
+			[dbo].[MST_Quiz].[QuizName]
+			,[dbo].[MST_Quiz].[TotalQuestions]
+			,[dbo].[MST_Quiz].[QuizDate]
+			,[dbo].[MST_Quiz].[UserID]
+		)
+		VALUES (
+			@quizname,
+			@totalquestions,
+			@quizdate,
+			@userid
+		)
+	END
 
---2 Procedure to get a quiz by ID
--- exec [dbo].[PR_Quiz_getbyID] 1
-CREATE or alter PROCEDURE [dbo].[PR_Quiz_getbyID]
-    @Quizid INT
-AS 
-BEGIN 
-    SELECT * FROM [dbo].[Quiz]
-    WHERE QuizID = @Quizid;
-END
+	------------------UPDATE-------------------------
+	--EXEC [dbo].[PR_MST_Quiz_Update] 5,'Science Trivia', 15, '1-1-2025', 5
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Quiz_Update]
+		@quizid				INT
+		,@quizname			NVARCHAR(100)
+		,@totalquestions	INT
+		,@quizdate			DATETIME
+		,@userid			INT
+	AS
+	BEGIN
+		UPDATE [dbo].[MST_Quiz]
+		SET
+			[dbo].[MST_Quiz].[QuizName]			= @quizname
+			,[dbo].[MST_Quiz].[TotalQuestions]	= @totalquestions
+			,[dbo].[MST_Quiz].[QuizDate]		= @quizdate
+			,[dbo].[MST_Quiz].[UserID]			= @userid
+			,[dbo].[MST_Quiz].[Modified]		= GETDATE()
+		WHERE [dbo].[MST_Quiz].[QuizID]			= @quizid
+	END
 
-
---3 Procedure to insert a new quiz
-exec [dbo].[PR_Quiz_entry] 'General Knowledge Quiz', 20
-CREATE or alter PROCEDURE [dbo].[PR_Quiz_entry]
-    @Quizname NVARCHAR(100),
-    @TotalQuestions INT
-AS
-BEGIN
-    INSERT INTO [dbo].[Quiz] (QuizName, TotalQuestions)
-    VALUES (@Quizname, @TotalQuestions);
-END
-
-
---4 Procedure to update a quiz
-CREATE or alter PROCEDURE [dbo].[PR_Quiz_update]
-    @Quizid INT,
-    @Quizname NVARCHAR(100),
-    @Totalquestions INT
-AS
-BEGIN
-    UPDATE [dbo].[Quiz]
-    SET QuizName = @Quizname, TotalQuestions = @Totalquestions
-    WHERE QuizID = @Quizid;
-END
- 
-
---5 Procedure to delete a quiz
-CREATE or alter PROCEDURE [dbo].[PR_quiz_delete]
-    @Quizid INT
-AS
-BEGIN
-    DELETE FROM [dbo].[Quiz]
-    WHERE QuizID = @Quizid;
-END
+	------------------DELETE-------------------------
+	--EXEC [dbo].[PR_MST_Quiz_Delete] 5
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Quiz_Delete]
+		@quizid INT
+	AS
+	BEGIN
+		DELETE 
+		FROM [dbo].[MST_Quiz]
+		WHERE [dbo].[MST_Quiz].[QuizID] = @quizid
+	END
