@@ -259,19 +259,93 @@
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
-
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Student</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-person"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
                         <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
-                            <i class="bi bi-circle"></i><span>Registration</span>
+                            <i class="bi bi-circle"></i><span>User List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Add User</span>
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Components Nav -->
+            </li><!-- End User Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person-raised-hand"></i><span>Quiz</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Quiz List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Add Quiz</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Quiz Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Question</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Question List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Add Question</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li><!-- End Question Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-book-half"></i><span>Question Level</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Question Level List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Add Question Level</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li><!-- End Question Level Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-bar-chart-steps"></i><span>Quiz Wise Question</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Quiz Wise Question List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentRegistrationForm">
+                            <i class="bi bi-circle"></i><span>Add Quiz Wise Question</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Quiz Wise Question Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->
