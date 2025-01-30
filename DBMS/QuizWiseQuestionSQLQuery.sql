@@ -1,7 +1,7 @@
 --use Quiz
 
-CREATE TABLE [MST_QuizWiseQuestion] (
-    QuizWiseQuestionID			INT NOT NULL PRIMARY KEY IDENTITY(1,1)
+CREATE TABLE [MST_QuizWiseQuestions] (
+    QuizWiseQuestionsID			INT NOT NULL PRIMARY KEY IDENTITY(1,1)
 	,QuizID						INT NOT NULL
 	,QuestionID					INT NOT NULL
     ,UserID						INT NOT NULL
@@ -49,7 +49,7 @@ CREATE TABLE [MST_QuizWiseQuestion] (
 	END
 
 	------------------SelectByPK-------------------------
-	--EXEC [dbo].[PR_MST_QuizWiseQuestions_SelectByPK]
+	--EXEC [dbo].[PR_MST_QuizWiseQuestions_SelectByPK] 1
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuizWiseQuestions_SelectByPK]
 		@quizwisequestionsid INT
 	AS
@@ -79,7 +79,7 @@ CREATE TABLE [MST_QuizWiseQuestion] (
 	END
 
 	------------------INSERT-------------------------
-	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Insert] 3, 3, 3
+	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Insert] 3, 1, 1
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuizWiseQuestions_Insert]
 		@quizid		INT,
 		@questionid INT,
@@ -100,7 +100,7 @@ CREATE TABLE [MST_QuizWiseQuestion] (
 	END
 
 	------------------UPDATE-------------------------
-	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Update]
+	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Update] 2, 3, 1, 1
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuizWiseQuestions_Update]
 		@quizwisequestions	INT
 		,@quizid			INT
@@ -118,7 +118,7 @@ CREATE TABLE [MST_QuizWiseQuestion] (
 	END
 
 	------------------DELETE-------------------------
-	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Delete]
+	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Delete] 2
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuizWiseQuestions_Delete]
 		@quizwisequestions INT
 	AS
