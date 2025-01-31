@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -46,53 +38,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "product.cshtml",
-              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\product\\product.cshtml",
-              "RelativeDocumentMoniker": "Views\\product\\product.cshtml",
-              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\product\\product.cshtml",
-              "RelativeToolTip": "Views\\product\\product.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-26T13:27:51.959Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "productController.cs",
-              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\productController.cs",
-              "RelativeDocumentMoniker": "Controllers\\productController.cs",
-              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\productController.cs",
-              "RelativeToolTip": "Controllers\\productController.cs",
-              "ViewState": "AgIAAAoAAAAAzczMzEwQwBAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T13:19:28.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-26T12:43:46.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T12:43:46.18Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAEYAAAAASzMzM/MmwBABAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAP8AAAAAsP3////9vw0BAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-18T07:52:37.758Z"
+              "WhenOpened": "2025-01-18T07:52:37.758Z",
+              "EditorCaption": ""
             }
           ]
         }
