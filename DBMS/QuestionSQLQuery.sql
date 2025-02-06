@@ -161,6 +161,16 @@ CREATE TABLE [MST_Question] (
 		@questionid INT
 	AS
 	BEGIN
+		Update [dbo].[MST_Question]
+		set [dbo].[MST_Question].[IsActive] = 0
+		WHERE [dbo].[MST_Question].[QuestionID] = @questionid
+	END
+
+	--EXEC [dbo].[PR_MST_Question_Delete] 2
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Question_Delete]
+		@questionid INT
+	AS
+	BEGIN
 		DELETE 
 		FROM [dbo].[MST_Question]
 		WHERE [dbo].[MST_Question].[QuestionID] = @questionid

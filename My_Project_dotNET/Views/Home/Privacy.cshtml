@@ -3,4 +3,12 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+@* @Html.ActionLink("View User List","UserList","User") *@
+@* <br /> *@
+@* <a href="@Url.Action("UserList","User")">View User List</a> *@
+@* <p>THis link is genrated in the view: </p> *@
+@* @Html.ActionLink("View User List to a 'User' controller 'UserList' action", "UserList", "User") *@
+
+@Html.ActionLink("View User List", "UserList", "User", null, new { @class = "btn btn-primary" })
+
 <p>Use this page to detail your site's privacy policy.</p>

@@ -120,15 +120,30 @@ CREATE TABLE [MST_User] (
 	END
 
 	------------------DELETE-------------------------
-	--EXEC [dbo].[PR_MST_User_Delete] 11
-	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_User_Delete]
-		@userid INT
-	AS
-	BEGIN
-		DELETE 
-		FROM [dbo].[MST_User]
-		WHERE [dbo].[MST_User].[UserID] = @userid
-	END
+	
+-- Soft Deletes a user from MST_User table based on primary key (UserID).
+--	exec PR_MST_User_Delete 11
+
+create or alter procedure [dbo].[PR_MST_User_Delete]
+@userID int
+as
+begin
+		update [dbo].[MST_User]
+		set [dbo].[MST_User].IsActive = 0
+		where [dbo].[MST_User].[UserID] = @userID;
+end
+
+--	Hard Deletes a user record from MST_User table based on primary key (UserID).
+--	exec PR_MST_User_Permenant_Delete 10
+
+create or alter procedure [dbo].[PR_MST_User_Permenant_Delete]
+@userID int
+as
+begin
+		delete
+		from [dbo].[MST_User]
+		where [dbo].[MST_User].[UserID] = @userID
+end
 
 	-----------------SelectByUserNamePassword-------------------------
 	--EXEC [dbo].[PR_MST_User_SelectByUserNamePassword] 'JohnDoe', 'Password123'
@@ -149,3 +164,48 @@ CREATE TABLE [MST_User] (
 			AND 
 			[dbo].[MST_User].[Password]			=	 @password
 	END
+
+	
+ ----------------------------------------------------------------- Procedure to fetch QuestionLevel dropdown (in Question Table) data from MST_QuestionLevel table -----------------------------------------------------------------
+
+ -- Fetches QuestionLevelID and QuestionLevel for dropdown population in the form.
+
+-- exec PR_MST_QuestionLevel_FillDropdown
+create or alter procedure [dbo].[PR_MST_QuestionLevel_FillDropdown]
+as
+begin
+		select	[dbo].[MST_QuestionLevel].[QuestionLevelID],
+				[dbo].[MST_QuestionLevel].[QuestionLevel]
+		from [dbo].[MST_QuestionLevel]
+		order by [dbo].[MST_QuestionLevel].[QuestionLevel]
+end
+
+-------------------------------------------------------------------- Procedure to Fetch All Quizzes for Quiz Dropdown in QuizWiseQuestions Form --------------------------------------------------------------------
+
+-- This procedure fetches all Quiz IDs and their corresponding Quiz Names from the MST_Quiz table.
+
+-- exec PR_MST_QuizWiseQuestions_Fill_Quiz_Dropdown
+create or alter procedure [dbo].[PR_MST_QuizWiseQuestions_Fill_Quiz_Dropdown]
+as
+begin
+		select	 [dbo].[MST_Quiz].[QuizID],
+				 [dbo].[MST_Quiz].[QuizName]
+		from [dbo].[MST_Quiz]
+end
+
+-------------------------------------------------------- Procedure to Fetch All Questions for Question Dropdown in QuizWiseQuestions Form----------------------------------------------------------
+
+-- This procedure fetches all the questions with their corresponding question level.
+
+-- exec PR_MST_QuizWiseQuestions_Fill_Question_Dropdown
+create or alter procedure [dbo].[PR_MST_QuizWiseQuestions_Fill_Question_Dropdown]
+as
+begin
+		select	[dbo].[MST_QuestionLevel].[QuestionLevel] +  ' - '  +[dbo].[MST_Question].[QuestionText] as QuestionText,
+				[dbo].[MST_Question].[QuestionID]
+		from 
+				[dbo].[MST_Question]
+		join
+				[dbo].[MST_QuestionLevel]
+			on  [dbo].[MST_Question].[QuestionLevelID] = [dbo].[MST_QuestionLevel].[QuestionLevelID]
+end
