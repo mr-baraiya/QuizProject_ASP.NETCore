@@ -156,7 +156,8 @@ CREATE TABLE [MST_Question] (
 	END
 	
 	------------------DELETE-------------------------
-	--EXEC [dbo].[PR_MST_Question_Delete] 2
+	EXEC [dbo].[PR_MST_Question_SelectAll]
+	-- EXEC [dbo].[PR_MST_Question_Delete] 3
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Question_Delete]
 		@questionid INT
 	AS
@@ -166,8 +167,8 @@ CREATE TABLE [MST_Question] (
 		WHERE [dbo].[MST_Question].[QuestionID] = @questionid
 	END
 
-	--EXEC [dbo].[PR_MST_Question_Delete] 2
-	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Question_Delete]
+	--EXEC [dbo].[PR_MST_Question_Permenant_Delete] 2
+	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_Question_Permenant_Delete]
 		@questionid INT
 	AS
 	BEGIN

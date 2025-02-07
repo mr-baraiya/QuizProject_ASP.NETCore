@@ -139,7 +139,7 @@ end
 create or alter procedure [dbo].[PR_MST_User_Permenant_Delete]
 @userID int
 as
-begin
+begin             
 		delete
 		from [dbo].[MST_User]
 		where [dbo].[MST_User].[UserID] = @userID
