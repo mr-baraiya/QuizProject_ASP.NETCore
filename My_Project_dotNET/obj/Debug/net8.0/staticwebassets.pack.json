@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\slides-3.jpg"
     },
     {
+      "Id": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\img\\vb.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\vb.jpg"
+    },
+    {
       "Id": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\js\\main.js",
       "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },

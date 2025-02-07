@@ -13,7 +13,6 @@ namespace My_Project_dotNET.Controllers
             _logger = logger;
         }
 
-        [Route("VishalnuHome")]
         public IActionResult Index()
         {
             return View();

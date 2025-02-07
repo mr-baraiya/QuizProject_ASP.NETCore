@@ -21,6 +21,7 @@ wwwroot\assets\img\profile-img.jpg
 wwwroot\assets\img\slides-1.jpg
 wwwroot\assets\img\slides-2.jpg
 wwwroot\assets\img\slides-3.jpg
+wwwroot\assets\img\vb.jpg
 wwwroot\assets\js\main.js
 wwwroot\assets\scss\Readme.txt
 wwwroot\assets\vendor\apexcharts\apexcharts.amd.js
