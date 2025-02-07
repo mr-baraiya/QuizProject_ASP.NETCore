@@ -9,6 +9,11 @@ namespace My_Project_dotNET.Controllers
             return View();
         }
 
+        public IActionResult QuizWiseQuestionDetails()
+        {
+            return View();
+        }
+
         public IActionResult AddQuizWiseQuestion()
         {
             return View();

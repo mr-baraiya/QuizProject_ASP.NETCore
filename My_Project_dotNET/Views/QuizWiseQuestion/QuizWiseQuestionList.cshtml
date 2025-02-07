@@ -51,156 +51,85 @@
 <body>
     <div class="container mt-4 bg-white w-100 p-5 border border-dark border-1 rounded">
         <div class="row">
-            <div class="col-sm-6">
-                <h3>Quiz Wise Question List</h3>
+            <div class="col-sm">
+                <h3>Search</h3>
             </div>
-            <div class="col-sm-6 d-flex justify-content-end">
-                <div class="mx-1"><a class="btn btn-danger" href="@Url.Action("QuizWiseQuestionList","QuizWiseQuestion")">Delete Selected</a> </div>
-                <div class="mx-1"><a class="btn btn-primary" href="@Url.Action("AddQuizWiseQuestion","QuizWiseQuestion")">Add Questions</a> </div>
-            </div>
-            </div>
-        <div class="row mb-3">
+        </div>
+        <div class="row">
             <hr />
         </div>
         <div class="row mb-3">
-           <div class="col-sm-3">
-               Quiz Name : English Grammer
-           </div>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Select Quiz</label>
             <div class="col-sm-3">
-                Total Questions in Quiz : 10
+                <select class="form-select">
+                    <option selected disabled>Select Quiz</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </select>
             </div>
-        </div> <!-- End of Header -->
-        <table class="table datatable" cellspacing="5" cellpadding="10">
+        </div>
+        <div class="row">
+            <div class="text-start">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div><!-- End of Search -->
+    <div class="container mt-4 bg-white w-100 p-5 border border-dark border-1 rounded">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Quiz Wise Questions</h3>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-end">
+                <div class="mx-1"><a class="btn btn-primary" href="@Url.Action("AddQuizWiseQuestion","QuizWiseQuestion")">Add Quiz Wise Questions</a></div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <hr />
+        </div>
+        <table class="table datatable table-striped" cellspacing="5" cellpadding="10">
             <thead class="table-lite">
                 <tr>
-                    <th><input type="checkbox" disabled /></th>
-                    <th>Question</th>
-                    <th>Option A</th>
-                    <th>Option B</th>
-                    <th>Option C</th>
-                    <th>Option D</th>
-                    <th>Correct Option</th>
-                    <th>Marks</th>
+                    <th>Quiz Name</th>
+                    <th>Entered Questions</th>
+                    <th>User Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th><input type="checkbox" /></th>
-                    <td>Who was the first President of the USA?</td>
-                    <td>George Washington</td>
-                    <td>Abraham Lincoln</td>
-                    <td>John Adams</td>
-                    <td>Thomas Jefferson</td>
-                    <td>A</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
+                    <td>English Grammer</td>
+                    <td>10</td>
+                    <td>John Doe</td>
+                    <td class="w-50">
+                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
+                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the capital of France?</td>
-                    <td>Berlin</td>
-                    <td>Madrid</td>
-                    <td>Paris</td>
-                    <td>Lisbon</td>
-                    <td>C</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
+                    <td>English Grammer</td>
+                    <td>10</td>
+                    <td>John Doe</td>
+                    <td class="w-50">
+                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
+                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which planet is known as the Red Planet?</td>
-                    <td>Earth</td>
-                    <td>Mars</td>
-                    <td>Jupiter</td>
-                    <td>Venus</td>
-                    <td>B</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the national animal of India?</td>
-                    <td>Lion</td>
-                    <td>Elephant</td>
-                    <td>Tiger</td>
-                    <td>Leopard</td>
-                    <td>C</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which year did World War II end?</td>
-                    <td>1942</td>
-                    <td>1945</td>
-                    <td>1948</td>
-                    <td>1950</td>
-                    <td>A</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the longest river in the world?</td>
-                    <td>Amazon</td>
-                    <td>Nile</td>
-                    <td>Yangtze</td>
-                    <td>Mississippi</td>
-                    <td>B</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Who wrote the play "Romeo and Juliet"?</td>
-                    <td>Shakespeare</td>
-                    <td>Moliere</td>
-                    <td>Tennessee Williams</td>
-                    <td>Homer</td>
-                    <td>A</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which continent has the largest population?</td>
-                    <td>Africa</td>
-                    <td>Asia</td>
-                    <td>Europe</td>
-                    <td>South America</td>
-                    <td>B</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Who discovered gravity?</td>
-                    <td>Newton</td>
-                    <td>Einstein</td>
-                    <td>Galileo</td>
-                    <td>Kepler</td>
-                    <td>A</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the currency of Japan?</td>
-                    <td>Dollar</td>
-                    <td>Yen</td>
-                    <td>Peso</td>
-                    <td>Rupee</td>
-                    <td>B</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
+                    <td>English Grammer</td>
+                    <td>10</td>
+                    <td>John Doe</td>
+                    <td class="w-50">
+                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
+                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table><!-- End of Table -->
-        <div class="text-start">
-            <button type="submit" class="btn btn-success">Save</button>
-            <button type="reset" class="btn btn-danger">Cancel</button>
-        </div>
     </div>
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
