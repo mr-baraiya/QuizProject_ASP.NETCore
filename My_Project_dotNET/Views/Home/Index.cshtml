@@ -1,8 +1,306 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="pagetitle">
+    <h1>Dashboard Statistics</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Admin</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+            </li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
 
-<div class="text-center">
-    <h1 class="display-5">Welcome to VB QuizMaster</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Forms / Layouts - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-sm-4">
+                <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3>Total Quizes</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <hr/>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-sm-2 text-primary bg-primary-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="col-sm">
+                            <h4>10</h4>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Total Quizes End -->
+            <div class="col-sm-4">
+                <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3>Total Questions</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <hr />
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-sm-2 text-warning bg-warning-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="col-sm">
+                            <h4>10</h4>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Total Questions End -->
+            <div class="col-sm-4">
+                <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3>Total Questions Levels</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <hr />
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-sm-2 text-success bg-success-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="col-sm">
+                            <h4>10</h4>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Total Question Levels End -->
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6">
+                <div class="container p-5 bg-white w-100 p-2 border border-dark border-1 rounded">
+                    <div class="row">
+                        <div class="col-sm"><h3>Recent 10 Quizes</h3></div>
+                    </div>
+                    <div class="row mb-3">
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Quiz ID</th>
+                                        <th>Quiz Name</th>
+                                        <th>Total Questions</th>
+                                        <th>Quiz Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>English Grammer</td>
+                                        <td>12</td>
+                                        <td>2024-10-25</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Recent 10 Quizes -->
+            <div class="col-sm-6">
+                <div class="container p-5 bg-white w-100 p-2 border border-dark border-1 rounded">
+                    <div class="row">
+                        <div class="col-sm"><h3>Recent 10 Questions</h3></div>
+                    </div>
+                    <div class="row mb-3">
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Question ID</th>
+                                        <th>Question</th>
+                                        <th>Question Markes</th>
+                                        <th>Correct Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Who is Iron Man ?</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--  Recent 10 Questions -->
+        </div>
+    </div>
     
-</div>
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/assets/vendor/quill/quill.js"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>
