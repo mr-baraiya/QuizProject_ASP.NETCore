@@ -9,7 +9,12 @@ namespace My_Project_dotNET.Controllers
             return View();
         }
 
-        public IActionResult AddUser()
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
