@@ -1,4 +1,7 @@
-﻿<div class="pagetitle">
+﻿@model DataTable
+@using System.Data
+
+<div class="pagetitle">
     <h1>User List</h1>
     <nav>
         <ol class="breadcrumb">
@@ -70,13 +73,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (DataRow datarow in Model.Rows)
+                @foreach (DataRow row in Model.Rows)
                 {
                     <tr>
-                        <td>@dataRow["UserName"]</td>
-                        <td>@dataRow["Password"]</td>
-                        <td>@dataRow["Email"]</td>
-                        <td>@dataRow["Mobile"]</td>
+                        <td>@row["UserName"]</td>
+                        <td>@row["Password"]</td>
+                        <td>@row["Email"]</td>
+                        <td>@row["Mobile"]</td>
                     </tr>
                 }
             </tbody>

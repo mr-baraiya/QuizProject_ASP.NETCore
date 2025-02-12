@@ -11,8 +11,9 @@ namespace My_Project_dotNET.Controllers
 
         public UserController(IConfiguration _configuration)
         {
-            configuration = _configuration;
+            this.configuration = _configuration;
         }
+        [Route("")]
         public IActionResult UserList()
         {
             string connectionString = this.configuration.GetConnectionString("ConnectionString");
