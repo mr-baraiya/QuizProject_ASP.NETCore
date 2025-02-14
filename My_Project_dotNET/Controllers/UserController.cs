@@ -13,7 +13,7 @@ namespace My_Project_dotNET.Controllers
         {
             this.configuration = _configuration;
         }
-        [Route("")]
+        [Route("ShowUsers")]
         public IActionResult UserList()
         {
             string connectionString = this.configuration.GetConnectionString("ConnectionString");
