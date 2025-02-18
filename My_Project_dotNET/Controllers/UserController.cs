@@ -28,11 +28,15 @@ namespace My_Project_dotNET.Controllers
             return View(table);
         }
 
+        [Route("Register")]
+        [Route("Register/{id?}")]
         public IActionResult Register()
         {
             return View();
         }
 
+        [Route("Login")]
+        [Route("Login/{id?}")]
         public IActionResult Login()
         {
             return View();
