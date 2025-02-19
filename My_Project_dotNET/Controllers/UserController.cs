@@ -28,6 +28,33 @@ namespace My_Project_dotNET.Controllers
             return View(table);
         }
 
+        public IActionResult UserDelete(int UserID)
+        {
+            try
+            {
+                string connectionString = configuration.GetConnectionString("ConnectionString");
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "PR_MST_User_Delete";
+                    command.Parameters.Add("@userID", SqlDbType.Int).Value = UserID;
+
+
+                    command.ExecuteNonQuery();
+                }
+
+                TempData["SuccessMessage"] = "User deleted successfully.";
+                return RedirectToAction("UserList");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An error occurred while deleting the User: " + ex.Message;
+                return RedirectToAction("UserList");
+            }
+        }
+
         [Route("Register")]
         [Route("Register/{id?}")]
         public IActionResult Register()

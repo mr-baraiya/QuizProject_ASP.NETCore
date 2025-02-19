@@ -67,13 +67,10 @@
             <thead class="table-lite">
                 <tr>
                     <th>UserName</th>
-                    <th>Password</th>
                     <th>Email</th>
-                    <th>Mobile</th>
-                    <th>IsAdmin</th>
                     <th>IsActive</th>
                     <th>Created</th>
-                    <th>Modified</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,13 +78,18 @@
                 {
                     <tr>
                         <td>@row["UserName"]</td>
-                        <td>@row["Password"]</td>
-                        <td>@row["Email"]</td>
                         <td>@row["Mobile"]</td>
-                        <td>@row["IsAdmin"]</td>
                         <td>@row["IsActive"]</td>
                         <td>@row["Created"]</td>
-                        <td>@row["Modified"]</td>
+                        <td>
+                            <a asp-controller="User" asp-action="UserDelete" asp-route-CityID="@row["UserID"]" class="btn btn-outline-success">
+                                <i class="bi bi-pencil-fill"></i>Edit
+                            </a>
+                            <a asp-controller="User" asp-action="UserDelete" asp-route-CityID="@row["UserID"]" class="btn btn-outline-danger btn-xs">
+                                <i class="bi bi-x"></i>Delete
+                            </a>
+                            <span class="text-danger">@TempData["ErrorMessage"]</span>
+                        </td>
                     </tr>
                 }
             </tbody>
