@@ -118,7 +118,7 @@ CREATE TABLE [MST_QuizWiseQuestions] (
 	END
 
 	------------------DELETE-------------------------
-	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Delete] 2
+	--EXEC [dbo].[PR_MST_QuizWiseQuestions_Delete] 1
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuizWiseQuestions_Delete]
 		@quizwisequestions INT
 	AS

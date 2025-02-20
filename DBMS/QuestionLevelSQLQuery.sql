@@ -89,7 +89,7 @@ CREATE TABLE [MST_QuestionLevel] (
 	END
 
 	------------------DELETE-------------------------
-	--EXEC [dbo].[PR_MST_QuestionLevel_Delete] 4
+	--EXEC [dbo].[PR_MST_QuestionLevel_Delete] 3
 	CREATE OR ALTER PROCEDURE [dbo].[PR_MST_QuestionLevel_Delete]
 		@questionlevelid INT
 	AS
@@ -98,4 +98,3 @@ CREATE TABLE [MST_QuestionLevel] (
 		FROM [dbo].[MST_QuestionLevel]
 		WHERE [dbo].[MST_QuestionLevel].[QuestionLevelID] = @questionlevelid
 	END
-
