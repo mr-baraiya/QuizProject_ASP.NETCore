@@ -25,6 +25,7 @@ CREATE TABLE [MST_QuizWiseQuestions] (
 			[dbo].[MST_QuizWiseQuestions].[QuizWiseQuestionsID]
 			,[dbo].[MST_QuizWiseQuestions].[QuizID]
 			,[dbo].[MST_Quiz].[QuizName]
+			,[dbo].[MST_Quiz].[TotalQuestions]
 			,[dbo].[MST_QuizWiseQuestions].[QuestionID]
 			,[dbo].[MST_Question].[QuestionText]
 			,[dbo].[MST_QuizWiseQuestions].[UserID]

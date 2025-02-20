@@ -108,9 +108,7 @@
                     <th>Quiz Name</th>
                     <th>Total Questions</th>
                     <th>Quiz Date</th>
-                    <th>User ID</th>
-                    <th>Created</th>
-                    <th>Modified</th>
+                    <th>User Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -121,17 +119,15 @@
                         <td>@row["QuizName"]</td>
                         <td>@row["TotalQuestions"]</td>
                         <td>@row["QuizDate"]</td>
-                        <td>@row["UserID"]</td>
-                        <td>@row["Created"]</td>
-                        <td>@row["Modified"]</td>
+                        <td>@row["UserName"]</td>
                         <td>
                             <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
-                               class="btn btn-outline-success" data-bs-toggle="tooltip" title="Edit">
-                                <i class="bi bi-pencil-fill"></i>Edit
+                               class="mx-1 btn btn-outline-success" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil-fill"></i>
                             </a>
                             <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
-                               class="btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
-                                <i class="bi bi-x"></i>Delete
+                               class="mx-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                <i class="bi bi-trash"></i>
                             </a>
                         </td>
                     </tr>

@@ -1,4 +1,7 @@
-﻿<div class="pagetitle">
+﻿@model DataTable
+@using System.Data
+
+<div class="pagetitle">
     <h1>Quiz Wise Question List</h1>
     <nav>
         <ol class="breadcrumb">
@@ -98,36 +101,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>English Grammer</td>
-                    <td>10</td>
-                    <td>John Doe</td>
-                    <td class="w-50">
-                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Maths</td>
-                    <td>10</td>
-                    <td>John Doe</td>
-                    <td class="w-50">
-                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>G.K.</td>
-                    <td>10</td>
-                    <td>John Doe</td>
-                    <td class="w-50">
-                        <button class="btn btn-outline-info"><i class="bi bi-info-circle"></i> Details</button>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row["QuizName"]</td>
+                        <td>@row["TotalQuestions"]</td>
+                        <td>@row["UserName"]</td>
+                        <td class="d-flex">
+                            <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDelete" asp-route-QuizWiseQuestionsID="@row["QuizWiseQuestionsID"]"
+                               class="mx-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDelete" asp-route-QuizWiseQuestionsID="@row["QuizWiseQuestionsID"]"
+                               class="mx-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table><!-- End of Table -->
     </div>

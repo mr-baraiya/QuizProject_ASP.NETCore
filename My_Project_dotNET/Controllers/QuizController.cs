@@ -48,7 +48,7 @@ namespace My_Project_dotNET.Controllers
                     command.ExecuteNonQuery();
                 }
 
-                TempData["SuccessMessage"] = "User deleted successfully.";
+                TempData["SuccessMessage"] = "Quiz deleted successfully.";
                 return RedirectToAction("QuizList");
             }
             catch (Exception ex)

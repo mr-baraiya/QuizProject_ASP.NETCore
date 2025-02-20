@@ -1,4 +1,7 @@
-﻿<div class="pagetitle">
+﻿@model DataTable
+@using System.Data
+
+<div class="pagetitle">
     <h1>Question Level List</h1>
     <nav>
         <ol class="breadcrumb">
@@ -81,33 +84,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Hard</td>
-                    <td>washington</td>
-                    <td>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Medium</td>
-                    <td>washington</td>
-                    <td>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Easy</td>
-                    <td>washington</td>
-                    <td>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>@row["QuestionLevel"]</td>
+                        <td>@row["UserName"]</td>
+                        <td class="d-flex">
+                            <a asp-controller="QuestionLevel" asp-action="QuestionLevelDelete" asp-route-QuestionLevelID="@row["QuestionLevelID"]"
+                               class="mx-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a asp-controller="QuestionLevel" asp-action="QuestionLevelDelete" asp-route-QuestionLevelID="@row["QuestionLevelID"]"
+                               class="mx-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table><!-- End of Table -->
         <div class="text-start">

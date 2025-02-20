@@ -134,11 +134,13 @@
                         <td>@row["IsActive"]</td>
                         <td>@row["UserName"]</td>
                         <td>
-                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]" class="btn btn-outline-success">
-                                <i class="bi bi-pencil-fill"></i>Edit
+                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]"
+                               class="my-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil-fill"></i>
                             </a>
-                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]" class="btn btn-outline-danger btn-xs">
-                                <i class="bi bi-x"></i>Delete
+                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]"
+                               class="my-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                <i class="bi bi-trash"></i>
                             </a>
                         </td>
                     </tr>
