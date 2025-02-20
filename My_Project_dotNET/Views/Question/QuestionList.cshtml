@@ -1,4 +1,7 @@
-﻿<div class="pagetitle">
+﻿@model DataTable
+@using System.Data
+
+<div class="pagetitle">
     <h1>Question List</h1>
     <nav>
         <ol class="breadcrumb">
@@ -103,64 +106,43 @@
         <table class="table datatable table-striped" cellspacing="5" cellpadding="10">
             <thead class="table-lite">
                 <tr>
-                    <th>Question Text</th>
+                    <th>Question</th>
                     <th>Question Level</th>
-                    <th>Option A</th>
-                    <th>Option B</th>
-                    <th>Option C</th>
-                    <th>Option D</th>
+                    <th>Option-A</th>
+                    <th>Option-B</th>
+                    <th>Option-C</th>
+                    <th>Option-D</th>
                     <th>Answer</th>
-                    <th>Markes</th>
-                    <th>Active</th>
+                    <th>Question Marks</th>
+                    <th>Is Active</th>
+                    <th>User Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Who is A First Prime Minister Of India ? </td>
-                    <td>Hard</td>
-                    <td>Narendra Modi</td>
-                    <td>Manmohan Sinh</td>
-                    <td>Rahul Gandhi</td>
-                    <td>Javarlal Nehru</td>
-                    <td>D</td>
-                    <td>2</td>
-                    <td>Yes</td>
-                    <td class="w-50">
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Who is A Prime Minister Of India ? </td>
-                    <td>Hard</td>
-                    <td>Narendra Modi</td>
-                    <td>Manmohan Sinh</td>
-                    <td>Rahul Gandhi</td>
-                    <td>Kejrival</td>
-                    <td>A</td>
-                    <td>2</td>
-                    <td>Yes</td>
-                    <td>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Who is A Current Leader Of Congras ? </td>
-                    <td>Hard</td>
-                    <td>Narendra Modi</td>
-                    <td>Manmohan Sinh</td>
-                    <td>Rahul Gandhi</td>
-                    <td>Kejrival</td>
-                    <td>C</td>
-                    <td>2</td>
-                    <td>Yes</td>
-                    <td>
-                        <button class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button>
-                    </td>
-                </tr>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row["QuestionText"]</td>
+                        <td>@row["QuestionLevel"]</td>
+                        <td>@row["OptionA"]</td>
+                        <td>@row["OptionB"]</td>
+                        <td>@row["OptionC"]</td>
+                        <td>@row["OptionD"]</td>
+                        <td>@row["CorrectOption"]</td>
+                        <td>@row["QuestionMarks"]</td>
+                        <td>@row["IsActive"]</td>
+                        <td>@row["UserName"]</td>
+                        <td>
+                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]" class="btn btn-outline-success">
+                                <i class="bi bi-pencil-fill"></i>Edit
+                            </a>
+                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]" class="btn btn-outline-danger btn-xs">
+                                <i class="bi bi-x"></i>Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table><!-- End of Table -->
     </div><!-- End of Table -->

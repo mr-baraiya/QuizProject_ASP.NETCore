@@ -82,13 +82,18 @@
                         <td>@row["IsActive"]</td>
                         <td>@row["Created"]</td>
                         <td>
-                            <a asp-controller="User" asp-action="UserDelete" asp-route-CityID="@row["UserID"]" class="btn btn-outline-success">
-                                <i class="bi bi-pencil-fill"></i>Edit
+                            <a asp-controller="User" asp-action="UserDelete" asp-route-UserID="@row["UserID"]"
+                               class="btn btn-outline-primary btn-xs" data-bs-toggle="tooltip" title="Read More">
+                                <i class="bi bi-person-fill"></i>
                             </a>
-                            <a asp-controller="User" asp-action="UserDelete" asp-route-CityID="@row["UserID"]" class="btn btn-outline-danger btn-xs">
-                                <i class="bi bi-x"></i>Delete
+                            <a asp-controller="User" asp-action="UserDelete" asp-route-UserID="@row["UserID"]"
+                               class="btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil-fill"></i>
                             </a>
-                            <span class="text-danger">@TempData["ErrorMessage"]</span>
+                            <a asp-controller="User" asp-action="UserDelete" asp-route-UserID="@row["UserID"]"
+                               class="btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 }
