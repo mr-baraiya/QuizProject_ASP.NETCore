@@ -21,14 +21,14 @@ namespace My_Project_dotNET.Controllers
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "PR_MST_QuizWiseQuestions_SelectAll";
+            command.CommandText = "PR_MST_Quiz_SelectAll";
             SqlDataReader reader = command.ExecuteReader();
             DataTable table = new DataTable();
             table.Load(reader);
             return View(table);
         }
 
-        public IActionResult QuizWiseQuestionDelete(int UQuizWiseQuestionsID)
+        public IActionResult QuizWiseQuestionDelete(int QuizWiseQuestionsID)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace My_Project_dotNET.Controllers
                     SqlCommand command = connection.CreateCommand();
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "PR_MST_QuizWiseQuestion_Delete";
-                    command.Parameters.Add("@quizWiseQuestionsID", SqlDbType.Int).Value = UQuizWiseQuestionsID;
+                    command.Parameters.Add("@quizWiseQuestionsID", SqlDbType.Int).Value = QuizWiseQuestionsID;
 
 
                     command.ExecuteNonQuery();

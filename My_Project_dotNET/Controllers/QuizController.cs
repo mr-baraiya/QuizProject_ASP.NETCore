@@ -42,18 +42,20 @@ namespace My_Project_dotNET.Controllers
                     SqlCommand command = connection.CreateCommand();
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "PR_MST_Quiz_Delete";
-                    command.Parameters.Add("@quizID", SqlDbType.Int).Value = QuizID;
+                    command.Parameters.Add("@QuizID", SqlDbType.Int).Value = QuizID;
 
 
                     command.ExecuteNonQuery();
                 }
 
-                TempData["SuccessMessage"] = "Quiz deleted successfully.";
+                TempData["Message"] = "Quiz deleted successfully.";
+                TempData["Type"] = "Success";
                 return RedirectToAction("QuizList");
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "An error occurred while deleting the User: " + ex.Message;
+                TempData["Message"] = "An error occurred while deleting the Quiz: " + ex.Message;
+                TempData["Type"] = "Success";
                 return RedirectToAction("QuizList");
             }
         }

@@ -1,6 +1,30 @@
 ﻿@model DataTable
 @using System.Data
 
+@if (TempData["ToastMessage"] != null)
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "2000",
+            "showEasing": "swing",
+            "hideEasing": "swing",
+            "showMethod": "slideDown",
+            "hideMethod": "slideUp"
+        }
+        toastr["@TempData["ToastType"]"]("@TempData["ToastMessage"]");
+    </script>
+}
+
 <div class="pagetitle">
     <h1>Quiz List</h1>
     <nav>

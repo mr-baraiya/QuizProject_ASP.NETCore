@@ -108,11 +108,11 @@
                         <td>@row["TotalQuestions"]</td>
                         <td>@row["UserName"]</td>
                         <td class="d-flex">
-                            <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDelete" asp-route-QuizWiseQuestionsID="@row["QuizWiseQuestionsID"]"
+                            <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
                                class="mx-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
-                            <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDelete" asp-route-QuizWiseQuestionsID="@row["QuizWiseQuestionsID"]"
+                            <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
                                class="mx-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
                                 <i class="bi bi-trash"></i>
                             </a>
