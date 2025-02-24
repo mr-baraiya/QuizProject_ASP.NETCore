@@ -110,8 +110,7 @@
               "RelativeToolTip": "Views\\Quiz\\QuizList.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAABQPRgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-20T13:39:53.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T13:39:53.838Z"
             },
             {
               "$type": "Document",
@@ -133,7 +132,7 @@
               "RelativeDocumentMoniker": "Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
               "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
               "RelativeToolTip": "Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
-              "ViewState": "AgIAAFwAAAAALjMzMzMbwHYAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-20T16:40:52.561Z",
               "EditorCaption": ""
@@ -148,8 +147,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAEEAAAAAgDIzMzPbvx4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-14T06:46:35.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T06:46:35.278Z"
             },
             {
               "$type": "Document",
@@ -157,12 +155,11 @@
               "Title": "QuizWiseQuestionController.cs",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizWiseQuestionController.cs",
               "RelativeDocumentMoniker": "Controllers\\QuizWiseQuestionController.cs",
-              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizWiseQuestionController.cs*",
-              "RelativeToolTip": "Controllers\\QuizWiseQuestionController.cs*",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizWiseQuestionController.cs",
+              "RelativeToolTip": "Controllers\\QuizWiseQuestionController.cs",
               "ViewState": "AgIAABMAAAAA6v//////vykAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T09:54:13.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T09:54:13.478Z"
             },
             {
               "$type": "Document",
