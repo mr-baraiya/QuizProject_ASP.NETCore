@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@model My_Project_dotNET.Models.UserModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,30 +33,54 @@
                 <h1>VB QuizMaster</h1>
             </div>
             <!-- Register Form -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card p-4 shadow">
                     <h3 class="text-center">Register</h3>
                     <p class="text-center text-muted">Enter details</p>
-                    <form>
+                    <form method="post" asp-action="Register" asp-controller="User">
                         <div class="mb-3">
-                            <label class="form-label">Username</label>
-                            <input type="text" class="form-control" placeholder="Enter Username">
+                            <label class="form-label">Role</label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="form-check col-2">
+                                        <input type="radio" id="userRole" asp-for="IsAdmin" class="form-check-input" value="false" checked>
+                                        <label for="userRole" class="form-check-label">User</label>
+                                    </div>
+                                    <div class="form-check col">
+                                        <input type="radio" id="adminRole" asp-for="IsAdmin" class="form-check-input" value="true">
+                                        <label for="adminRole" class="form-check-label">Admin</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="Enter Email">
+                            <label asp-for="UserName" class="form-label">Username</label>
+                            <input asp-for="UserName" class="form-control" placeholder="Enter Username">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="Enter Password">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Mobile Number</label>
-                            <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                            <label asp-for="Mobile" class="form-label">Mobile Number</label>
+                            <input asp-for="Mobile" class="form-control" placeholder="Enter Mobile Number">
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
                     </form>
-                    <p class="text-center mt-3">Do you have an account? <a asp-area="" asp-controller="User" asp-action="Login" >Login</a></p>
+                    <p class="text-center mt-3">Do you have an account? <a asp-controller="User" asp-action="Login">Login</a></p>
                 </div>
             </div> <!-- End Register Form -->
         </div>

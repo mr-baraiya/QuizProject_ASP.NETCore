@@ -69,6 +69,7 @@
                     <th>UserName</th>
                     <th>Email</th>
                     <th>IsActive</th>
+                    <th>IsAdmin</th>
                     <th>Created</th>
                     <th>Action</th>
                 </tr>
@@ -80,6 +81,7 @@
                         <td>@row["UserName"]</td>
                         <td>@row["Email"]</td>
                         <td>@row["IsActive"]</td>
+                        <td>@row["IsAdmin"]</td>
                         <td>@row["Created"]</td>
                         <td>
                             <a asp-controller="User" asp-action="UserDelete" asp-route-UserID="@row["UserID"]"
