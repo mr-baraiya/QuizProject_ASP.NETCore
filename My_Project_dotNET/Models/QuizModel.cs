@@ -20,6 +20,7 @@ namespace My_Project_dotNET.Models
 
         [Required(ErrorMessage = "Please select quiz date.")]
         [DataType(DataType.DateTime)]
+        [Range(typeof(DateTime), "1753-01-01", "9999-12-31", ErrorMessage = "Quiz Date must be between 1753 and 9999.")]
         public DateTime QuizDate { get; set; }
 
         [Required(ErrorMessage = "User ID is required.")]

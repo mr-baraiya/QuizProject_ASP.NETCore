@@ -36,4 +36,10 @@ namespace My_Project_dotNET.Models
 
         public DateTime Modified { get; set; } = DateTime.UtcNow; // Auto-set on insert/update
     }
+
+    public class UserDropDownModel
+    {
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+    }
 }

@@ -35,11 +35,17 @@
             <div class="col-md-4">
                 <div class="card p-4 shadow">
                     <h3 class="text-center">Login to Your Account</h3>
-                    <p class="text-center text-muted">Enter your username & password to login</p>
+                    <p class="text-center text-muted">Enter your Username, Email, or Mobile & password to login</p>
+                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                    {
+                        <div class="alert alert-danger text-center">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
                     <form method="post" asp-action="Login" asp-controller="User">
                         <div class="mb-3">
-                            <label class="form-label">Username</label>
-                            <input type="text" name="LoginIdentifier" class="form-control" placeholder="Enter Username, Email, or Mobile" required>
+                            <label class="form-label">UserName</label>
+                            <input type="text" name="LoginIdentifier" class="form-control" placeholder="Enter Username" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
@@ -47,6 +53,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Login</button>
                     </form>
+
                     <p class="text-center mt-3">Don't have an account? <a asp-area="" asp-controller="User" asp-action="Register">Create an account</a></p>
                     <p class="text-center mt-3">Login as <a asp-area="" asp-controller="Home" asp-action="Index">Guest</a></p>
                 </div>
