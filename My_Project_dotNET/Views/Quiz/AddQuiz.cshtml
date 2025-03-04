@@ -54,7 +54,10 @@
         <form method="post" asp-controller="Quiz" asp-action="QuizAddEdit" class="bg-white w-100 p-3 border border-dark border-1 rounded">
             <h3>Add Quiz</h3>
             <hr />
-
+            @if (Model != null && Model.QuizID > 0)
+            {
+                <input type="hidden" asp-for="QuizID" />
+            }
             <div class="row mb-3">
                 <label asp-for="QuizName" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Quiz Name</label>
                 <div class="col-sm">
