@@ -29,11 +29,75 @@ namespace My_Project_dotNET.Controllers
             return View(table);
         }
 
-        [HttpGet]
-        public IActionResult AddQuiz()
+        public IActionResult QuizDelete(int QuizID)
         {
+            try
+            {
+                string connectionString = configuration.GetConnectionString("ConnectionString");
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "PR_MST_Quiz_Delete";
+                    command.Parameters.Add("@QuizID", SqlDbType.Int).Value = QuizID;
+
+
+                    command.ExecuteNonQuery();
+                }
+
+                TempData["SuccessMessage"] = "Quiz deleted successfully.";
+                TempData["Type"] = "Success";
+                return RedirectToAction("QuizList");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An error occurred while deleting the Quiz: " + ex.Message;
+                TempData["Type"] = "Error";
+                return RedirectToAction("QuizList");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddQuiz(int? QuizID)
+        {
+            if (QuizID == null)
+            {
+                var m = new QuizModel
+                {
+                    Created = DateTime.Now
+                };
+                UserDropDown();
+                return View(m);
+            }
+
+            string connectionString = this.configuration.GetConnectionString("ConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_MST_Quiz_SelectByPK";
+            command.Parameters.AddWithValue("@QuizID", QuizID);
+            //command.Parameters.AddWithValue("@UserID", CommonVariable.UserID());
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+            QuizModel model = new QuizModel();
+
+            foreach (DataRow dataRow in table.Rows)
+            {
+                model.QuizID = Convert.ToInt32(dataRow["QuizID"]);
+                Console.WriteLine($"QuizID: {model.QuizID}");
+
+                model.QuizName = dataRow["QuizName"].ToString();
+                model.TotalQuestions = Convert.ToInt32(dataRow["TotalQuestions"]);
+                model.QuizDate = Convert.ToDateTime(dataRow["QuizDate"]);
+                model.UserID = Convert.ToInt32(dataRow["UserID"]);
+                model.Created = dataRow["Created"] != DBNull.Value ? Convert.ToDateTime(dataRow["Created"]) : DateTime.UtcNow;
+                model.Modified = dataRow["Modified"] != DBNull.Value ? Convert.ToDateTime(dataRow["Modified"]) : DateTime.UtcNow;
+            }
             UserDropDown();
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -41,6 +105,8 @@ namespace My_Project_dotNET.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine($"QuizID: {model.QuizID}"); // in update it is still zero
+
                 string connectionString = this.configuration.GetConnectionString("ConnectionString");
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
@@ -54,7 +120,7 @@ namespace My_Project_dotNET.Controllers
                 else
                 {
                     command.CommandText = "PR_MST_Quiz_Update";
-                    command.Parameters.Add("@UserID", SqlDbType.Int).Value = model.QuizID;
+                    command.Parameters.Add("@QuizID", SqlDbType.Int).Value = model.QuizID;
                 }
                 command.Parameters.Add("@QuizName", SqlDbType.VarChar).Value = model.QuizName;
                 command.Parameters.Add("@TotalQuestions", SqlDbType.Int).Value = model.TotalQuestions;
@@ -93,33 +159,6 @@ namespace My_Project_dotNET.Controllers
             ViewBag.UserList = UserList;
         }
 
-        public IActionResult QuizDelete(int QuizID)
-        {
-            try
-            {
-                string connectionString = configuration.GetConnectionString("ConnectionString");
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = connection.CreateCommand();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "PR_MST_Quiz_Delete";
-                    command.Parameters.Add("@QuizID", SqlDbType.Int).Value = QuizID;
-
-
-                    command.ExecuteNonQuery();
-                }
-
-                TempData["Message"] = "Quiz deleted successfully.";
-                TempData["Type"] = "Success";
-                return RedirectToAction("QuizList");
-            }
-            catch (Exception ex)
-            {
-                TempData["Message"] = "An error occurred while deleting the Quiz: " + ex.Message;
-                TempData["Type"] = "Success";
-                return RedirectToAction("QuizList");
-            }
-        }
+        
     }
 }
