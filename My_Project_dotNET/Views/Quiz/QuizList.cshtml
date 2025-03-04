@@ -1,30 +1,6 @@
 ﻿@model DataTable
 @using System.Data
 
-@if (TempData["ToastMessage"] != null)
-{
-    <script>
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": true,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": true,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "2000",
-            "showEasing": "swing",
-            "hideEasing": "swing",
-            "showMethod": "slideDown",
-            "hideMethod": "slideUp"
-        }
-        toastr["@TempData["ToastType"]"]("@TempData["ToastMessage"]");
-    </script>
-}
-
 <div class="pagetitle">
     <h1>Quiz List</h1>
     <nav>
@@ -76,6 +52,7 @@
 </head>
 
 <body>
+    <span class="text-danger text-md-center">@TempData["ErrorMessage"]</span><!-- End of Error Message -->
     <div class="container mt-4 bg-white w-100 p-3 border border-dark border-1 rounded">
         <div class="row">
             <div class="col-sm">
@@ -114,9 +91,6 @@
             </div>
         </div>
     </div><!-- End of Search -->
-    <div class="container mt-4 bg-white w-100 border border-dark border-1 rounded">
-        <span class="text-danger">@TempData["Message"]</span>
-    </div><!-- End of Error Message -->
     <div class="container mt-4 bg-white w-100 p-3 border border-dark border-1 rounded">
         <div class="row">
             <div class="col-sm-6">
@@ -148,7 +122,7 @@
                         <td>@row["QuizDate"]</td>
                         <td>@row["UserName"]</td>
                         <td>
-                            <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
+                            <a asp-controller="Quiz" asp-action="AddQuiz" asp-route-QuizID="@row["QuizID"]"
                                class="mx-1 btn btn-outline-success" data-bs-toggle="tooltip" title="Edit">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
