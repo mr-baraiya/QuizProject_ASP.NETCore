@@ -77,7 +77,6 @@ namespace My_Project_dotNET.Controllers
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "PR_MST_Quiz_SelectByPK";
-            command.Parameters.AddWithValue("@QuizID", QuizID);
             //command.Parameters.AddWithValue("@UserID", CommonVariable.UserID());
             SqlDataReader reader = command.ExecuteReader();
             DataTable table = new DataTable();
@@ -105,7 +104,6 @@ namespace My_Project_dotNET.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine($"QuizID: {model.QuizID}"); // in update it is still zero
 
                 string connectionString = this.configuration.GetConnectionString("ConnectionString");
                 SqlConnection connection = new SqlConnection(connectionString);
