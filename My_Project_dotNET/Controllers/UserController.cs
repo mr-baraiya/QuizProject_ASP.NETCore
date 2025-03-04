@@ -31,7 +31,7 @@ namespace My_Project_dotNET.Controllers
             return View(table);
         }
 
-        [HttpDelete]
+        [HttpGet]
         public IActionResult UserDelete(int UserID)
         {
             try
