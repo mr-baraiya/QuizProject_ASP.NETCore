@@ -1,4 +1,6 @@
-﻿<div class="pagetitle">
+﻿@model My_Project_dotNET.Models.QuestionLevelModel;
+
+<div class="pagetitle">
     <h1>Add Question Level</h1>
     <nav>
         <ol class="breadcrumb">
@@ -51,7 +53,7 @@
 <body>
     <div class="d-flex justify-content-center align-items-center">
         <!-- Question Form -->
-        <form class="bg-white w-100 p-3 border border-dark border-1 rounded">
+        <form method="post" asp-controller="QuestionLevel" asp-action="QuestionLevelAddEdit" class="bg-white w-100 p-3 border border-dark border-1 rounded">
             <div class="row">
                 <div class="col-sm">
                     <h3>Add Question Level</h3>
@@ -61,9 +63,10 @@
                 <hr />
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Level</label>
+                <label asp-for="QuestionLevel" for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Level</label>
                 <div class="col-sm">
-                    <input type="text" class="form-control" id="inputText" placeholder="Enter Question level (e.g.,Easy,Medium,Hard)">
+                    <input asp-for="QuestionLevel" type="text" class="form-control" id="inputText" placeholder="Enter Question level">
+                    <span asp-validation-for="QuestionLevel" class="text-danger"></span>
                 </div>
             </div>
             <div class="text-center">
