@@ -49,6 +49,7 @@ CREATE TABLE [MST_Quiz] (
 			[dbo].[MST_Quiz].[QuizID]
 			,[dbo].[MST_Quiz].[QuizName]
 			,[dbo].[MST_Quiz].[TotalQuestions]
+			,[dbo].[MST_Quiz].[QuizDate]
 			,[dbo].[MST_Quiz].[UserID]
 			,[dbo].[MST_User].[UserName]
 			,[dbo].[MST_Quiz].[Created]
