@@ -20,4 +20,10 @@ namespace My_Project_dotNET.Models
 
         public DateTime Modified { get; set; } = DateTime.UtcNow; // Auto-update on modification
     }
+
+    public class QuestionLevelDropDownModel
+    {
+        public int QuestionLevelID { get; set; }
+        public string QuestionLevel { get; set; }
+    }
 }
