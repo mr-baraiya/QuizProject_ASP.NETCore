@@ -1,4 +1,6 @@
-﻿<div class="pagetitle">
+﻿@model My_Project_dotNET.Models.QuestionModel;
+
+<div class="pagetitle">
     <h1>Add Question</h1>
     <nav>
         <ol class="breadcrumb">
@@ -50,8 +52,7 @@
 
 <body>
     <div class="d-flex justify-content-center align-items-center">
-        <!-- Question Form -->
-        <form class="bg-white w-100 p-3 border border-dark border-1 rounded">
+        <form method="post" asp-action="QuestionAddEdit" asp-controller="Question" class="bg-white w-100 p-3 border border-dark border-1 rounded">
             <div class="row">
                 <div class="col-sm">
                     <h3>Add Question</h3>
@@ -60,72 +61,103 @@
             <div class="row mb-3">
                 <hr />
             </div>
+
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question</label>
                 <div class="col-sm">
-                   <textarea class="form-control" rows="3" placeholder="Enter the Question"></textarea>
+                    <textarea asp-for="QuestionText" class="form-control" rows="3" placeholder="Enter the Question"></textarea>
+                    <span asp-validation-for="QuestionText" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Level</label>
+                <div class="col-sm">
+                    <select class="form-control" asp-for="QuestionLevelID" asp-items="@(new SelectList(ViewBag.QuestionLevelList, "QuestionLevelID", "QuestionLevel"))">
+                    <option value="">Select Question Level</option>
+                </select>
+                    <span asp-validation-for="QuestionLevelID" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Level</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option A</label>
                 <div class="col-sm">
-                    <select class="form-select">
-                        <option selected disabled>Select Level</option>
-                        <option >Easy</option>
-                        <option>Medium</option>
-                        <option>Hard</option>
-                    </select>
+                    <textarea asp-for="OptionA" class="form-control" placeholder="Enter Option A"></textarea>
+                    <span asp-validation-for="OptionA" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option A</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option B</label>
                 <div class="col-sm">
-                    <textarea class="form-control" placeholder="Enter the Option A"></textarea>
+                    <textarea asp-for="OptionB" class="form-control" placeholder="Enter Option B"></textarea>
+                    <span asp-validation-for="OptionB" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option B</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option C</label>
                 <div class="col-sm">
-                    <textarea class="form-control" placeholder="Enter the Option B"></textarea>
+                    <textarea asp-for="OptionC" class="form-control" placeholder="Enter Option C"></textarea>
+                    <span asp-validation-for="OptionC" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option C</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option D</label>
                 <div class="col-sm">
-                    <textarea class="form-control" placeholder="Enter the Option C"></textarea>
+                    <textarea asp-for="OptionD" class="form-control" placeholder="Enter Option D"></textarea>
+                    <span asp-validation-for="OptionD" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Option D</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Correct Option</label>
                 <div class="col-sm">
-                    <textarea class="form-control" placeholder="Enter the Option D"></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Level</label>
-                <div class="col-sm">
-                    <select class="form-select">
-                        <option selected disabled>Select Correct Option</option>
+                    <select asp-for="CorrectOption" class="form-select">
+                        <option selected disabled value="">Select Correct Option</option>
                         <option>A</option>
                         <option>B</option>
                         <option>C</option>
                         <option>D</option>
                     </select>
+                    <span asp-validation-for="CorrectOption" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Marks</label>
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Marks</label>
                 <div class="col-sm">
-                    <input type="number" class="form-control" id="inputText" placeholder="Enter the Marks">
+                    <select asp-for="QuestionMarks" class="form-select">
+                        <option selected>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                    <span asp-validation-for="QuestionMarks" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Is Active</label>
+                <div class="col-sm">
+                    <select asp-for="IsActive" id="inputState" class="form-select">
+                        <option selected>True</option>
+                        <option>False</option>
+
+                    </select>
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>User Name</label>
+                <div class="col-sm">
+                    <select class="form-control" asp-for="UserID" asp-items="@(new SelectList(ViewBag.UserList, "UserID", "UserName"))">
+                        <option value="">Select Name</option>
+                    </select>
+                    <span asp-validation-for="UserID" class="text-danger"></span>
                 </div>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-danger">Cancel</button>
             </div>
-        </form><!-- End Question Form -->
+        </form>
     </div>
-
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -138,7 +170,9 @@
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
-
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
 </body>
 
 </html>
