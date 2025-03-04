@@ -29,4 +29,10 @@ namespace My_Project_dotNET.Models
 
         public DateTime Modified { get; set; } = DateTime.UtcNow; // Auto-update on insert/update
     }
+
+    public class QuizDropDownModel
+    {
+        public int QuizID { get; set; }
+        public string QuizName { get; set; }
+    }
 }
