@@ -3,6 +3,7 @@ using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using My_Project_dotNET.Models;
+using OfficeOpenXml;
 
 namespace My_Project_dotNET.Controllers
 {
@@ -133,6 +134,65 @@ namespace My_Project_dotNET.Controllers
                 }
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ExportToExcel()
+        {
+            string connectionString = configuration.GetConnectionString("ConnectionString");
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = sqlConnection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "PR_MST_User_SelectAll"; // Assuming you have a stored procedure for user data
+
+                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    {
+                        DataTable data = new DataTable();
+                        data.Load(sqlDataReader);
+
+                        using (var package = new ExcelPackage())
+                        {
+                            var worksheet = package.Workbook.Worksheets.Add("Users");
+
+                            // Add headers
+                            worksheet.Cells[1, 1].Value = "UserID";
+                            worksheet.Cells[1, 2].Value = "UserName";
+                            worksheet.Cells[1, 3].Value = "Email";
+                            worksheet.Cells[1, 4].Value = "Mobile";
+                            worksheet.Cells[1, 5].Value = "IsActive";
+                            worksheet.Cells[1, 6].Value = "IsAdmin";
+                            worksheet.Cells[1, 7].Value = "Created";
+                            worksheet.Cells[1, 8].Value = "Modified";
+
+                            // Add data
+                            int row = 2;
+                            foreach (DataRow item in data.Rows)
+                            {
+                                worksheet.Cells[row, 1].Value = item["UserID"];
+                                worksheet.Cells[row, 2].Value = item["UserName"];
+                                worksheet.Cells[row, 3].Value = item["Email"];
+                                worksheet.Cells[row, 4].Value = item["Mobile"];
+                                worksheet.Cells[row, 5].Value = Convert.ToBoolean(item["IsActive"]);
+                                worksheet.Cells[row, 6].Value = Convert.ToBoolean(item["IsAdmin"]);
+                                worksheet.Cells[row, 7].Value = Convert.ToDateTime(item["Created"]);
+                                worksheet.Cells[row, 8].Value = Convert.ToDateTime(item["Modified"]);
+                                row++;
+                            }
+
+                            var stream = new MemoryStream();
+                            package.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string excelName = $"Users-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+                        }
+                    }
+                }
+            }
         }
     }
 }
