@@ -53,6 +53,7 @@
 </head>
 
 <body>
+    <span class="text-danger text-md-center">@TempData["ErrorMessage"]</span>
     <div class="container mt-4 bg-white w-100 p-3 border border-dark border-1 rounded">
         <div class="row">
             <div class="col-sm-6">
@@ -91,7 +92,7 @@
                         <td>@row["QuestionLevel"]</td>
                         <td>@row["UserName"]</td>
                         <td class="d-flex">
-                            <a asp-controller="QuestionLevel" asp-action="QuestionLevelDelete" asp-route-QuestionLevelID="@row["QuestionLevelID"]"
+                            <a asp-controller="QuestionLevel" asp-action="AddQuestionLevel" asp-route-QuestionLevelID="@row["QuestionLevelID"]"
                                class="mx-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>

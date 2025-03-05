@@ -61,7 +61,10 @@
             <div class="row mb-3">
                 <hr />
             </div>
-
+            @if (Model != null && Model.QuestionID > 0)
+            {
+                <input type="hidden" asp-for="QuestionID" />
+            }
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question</label>
                 <div class="col-sm">

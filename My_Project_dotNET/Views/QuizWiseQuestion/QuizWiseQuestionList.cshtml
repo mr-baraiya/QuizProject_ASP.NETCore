@@ -52,6 +52,7 @@
 </head>
 
 <body>
+    <span class="text-danger text-md-center">@TempData["ErrorMessage"]</span>
     <div class="container mt-4 bg-white w-100 p-5 border border-dark border-1 rounded">
         <div class="row">
             <div class="col-sm">
@@ -97,6 +98,8 @@
                     <th>Quiz Name</th>
                     <th>Entered Questions</th>
                     <th>User Name</th>
+                    <td>Created</td>
+                    <td>Modified</td>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -107,9 +110,11 @@
                         <td>@row["QuizName"]</td>
                         <td>@row["TotalQuestions"]</td>
                         <td>@row["UserName"]</td>
+                        <td>@row["Created"]</td>
+                        <td>@row["Modified"]</td>
                         <td class="d-flex">
-                            <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"
-                               class="mx-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                            <a asp-controller="Quiz" asp-action="AddQuiz" asp-route-QuizID="@row["QuizID"]"
+                               class="mx-1 btn btn-outline-success" data-bs-toggle="tooltip" title="Edit">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
                             <a asp-controller="Quiz" asp-action="QuizDelete" asp-route-QuizID="@row["QuizID"]"

@@ -39,6 +39,10 @@
                     <h3 class="text-center">Register</h3>
                     <p class="text-center text-muted">Enter details</p>
                     <form method="post" asp-action="Register" asp-controller="User">
+                        @if (Model != null && Model.UserID > 0)
+                        {
+                            <input type="hidden" asp-for="UserID" />
+                        }
                         <div class="mb-3">
                             <label class="form-label">Role</label>
                             <div class="container">
