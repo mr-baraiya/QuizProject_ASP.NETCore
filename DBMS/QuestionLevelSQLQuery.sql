@@ -50,7 +50,6 @@ CREATE TABLE [MST_QuestionLevel] (
 		
 		JOIN [dbo].[MST_User]
 		ON [dbo].[MST_QuestionLevel].[UserID] = [dbo].[MST_User].[UserID]
-		
 		WHERE [dbo].[MST_QuestionLevel].[QuestionLevelID] = @questionlevelid
 	END
 
@@ -98,3 +97,27 @@ CREATE TABLE [MST_QuestionLevel] (
 		FROM [dbo].[MST_QuestionLevel]
 		WHERE [dbo].[MST_QuestionLevel].[QuestionLevelID] = @questionlevelid
 	END
+
+
+
+	CREATE PROCEDURE PR_Quiz_Get_Recent_Quizzes
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 10 [MST_Quiz].[QuizID], [MST_Quiz].[QuizName], [MST_Quiz].[TotalQuestions],[MST_Quiz].[QuizDate]
+    FROM [dbo].[MST_Quiz]
+    ORDER BY [MST_Quiz].[Created] DESC;
+END;
+select * from MST_Quiz
+
+CREATE PROCEDURE PR_Question_Get_Recent_Questions
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 10 [MST_Question].[QuestionID], [MST_Question].[QuestionText], [MST_User].[UserName]
+    FROM [dbo].[MST_Question] join MST_User
+	on MST_Question.UserID = MST_User.UserID
+    ORDER BY [MST_Question].[Created] DESC;
+END;
