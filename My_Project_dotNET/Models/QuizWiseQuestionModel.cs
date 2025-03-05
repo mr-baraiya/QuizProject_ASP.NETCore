@@ -3,7 +3,7 @@
 
 namespace My_Project_dotNET.Models
 {
-    public class QuizWiseQuestionsModel
+    public class QuizWiseQuestionModel
     {
         [Key]
         public int QuizWiseQuestionsID { get; set; }
