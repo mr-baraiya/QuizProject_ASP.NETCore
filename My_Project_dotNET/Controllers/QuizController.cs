@@ -77,7 +77,7 @@ namespace My_Project_dotNET.Controllers
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "PR_MST_Quiz_SelectByPK";
-            //command.Parameters.AddWithValue("@UserID", CommonVariable.UserID());
+            command.Parameters.Add("@QuizID", SqlDbType.Int).Value = QuizID;
             SqlDataReader reader = command.ExecuteReader();
             DataTable table = new DataTable();
             table.Load(reader);
@@ -156,7 +156,5 @@ namespace My_Project_dotNET.Controllers
             }
             ViewBag.UserList = UserList;
         }
-
-        
     }
 }
