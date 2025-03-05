@@ -195,6 +195,28 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            @* <table class="table table-striped"> *@
+                            @*     <thead> *@
+                            @*         <tr> *@
+                            @*             <th>Quiz Name</th> *@
+                            @*             <th>User Name</th> *@
+                            @*             <th>Quiz Date</th> *@
+                            @*             <th>Total Questions</th> *@
+                            @*         </tr> *@
+                            @*     </thead> *@
+                            @*     <tbody> *@
+                            @*         @foreach (DataRow row in Model.Rows) *@
+                            @*         { *@
+                            @*             <tr> *@
+                            @*                 <td><input type="checkbox" /></td> *@
+                            @*                 <td>@row["QuizName"]</td> *@
+                            @*                 <td>@row["UserName"]</td> *@
+                            @*                 <td>@row["QuizDate"]</td> *@
+                            @*                 <td>@row["TotalQuestions"]</td> *@
+                            @*             </tr> *@
+                            @*         } *@
+                            @*     </tbody> *@
+                            @* </table> *@
                         </div>
                     </div>
                 </div>
