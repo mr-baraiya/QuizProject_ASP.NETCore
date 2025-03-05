@@ -79,7 +79,7 @@ namespace My_Project_dotNET.Controllers
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "PR_MST_QuestionLevel_SelectByPK";
-            command.Parameters.AddWithValue("@QuestionID", QuestionLevelID);
+            command.Parameters.AddWithValue("@QuestionLevelID", QuestionLevelID);
             //command.Parameters.AddWithValue("@UserID", CommonVariable.UserID());
             SqlDataReader reader = command.ExecuteReader();
             DataTable table = new DataTable();
@@ -115,7 +115,7 @@ namespace My_Project_dotNET.Controllers
                 }
                 else
                 {
-                    command.CommandText = "PR_QuestionLevel_Update";
+                    command.CommandText = "PR_MST_QuestionLevel_Update";
                     command.Parameters.Add("@QuestionLevelID", SqlDbType.Int).Value = model.QuestionLevelID;
                 }
                 command.Parameters.Add("@QuestionLevel", SqlDbType.VarChar).Value = model.QuestionLevel;
@@ -124,7 +124,7 @@ namespace My_Project_dotNET.Controllers
                 return RedirectToAction("QuestionLevelList");
             }
             UserDropDown();
-            return View("QuestionLevelList", model);
+            return RedirectToAction("QuestionLevelList");
         }
 
         [HttpGet]
