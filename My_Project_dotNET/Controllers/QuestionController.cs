@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using My_Project_dotNET.Models;
+using OfficeOpenXml;
 
 namespace My_Project_dotNET.Controllers
 {
@@ -13,7 +14,8 @@ namespace My_Project_dotNET.Controllers
         {
             this.configuration = _configuration;
         }
-       
+
+        [HttpGet]
         public IActionResult QuestionList()
         {
             string connectionString = this.configuration.GetConnectionString("ConnectionString");
@@ -193,5 +195,69 @@ namespace My_Project_dotNET.Controllers
             }
             ViewBag.QuestionLevelList = QuestionLevelList;
         }
+
+        [HttpGet]
+        public IActionResult ExportQuestionsToExcel()
+        {
+            string connectionString = configuration.GetConnectionString("ConnectionString");
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = sqlConnection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "PR_MST_Question_SelectAll";
+
+                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    {
+                        DataTable data = new DataTable();
+                        data.Load(sqlDataReader);
+
+                        using (var package = new ExcelPackage())
+                        {
+                            var worksheet = package.Workbook.Worksheets.Add("Questions");
+
+                            // Add headers
+                            string[] headers = { "QuestionID", "QuestionText", "OptionA", "OptionB", "OptionC", "OptionD", "CorrectOption", "QuestionMarks", "IsActive", "QuestionLevelID", "QuestionLevel", "UserID", "UserName", "Created", "Modified" };
+                            for (int i = 0; i < headers.Length; i++)
+                            {
+                                worksheet.Cells[1, i + 1].Value = headers[i];
+                            }
+
+                            // Add data
+                            int row = 2;
+                            foreach (DataRow item in data.Rows)
+                            {
+                                worksheet.Cells[row, 1].Value = item["QuestionID"];
+                                worksheet.Cells[row, 2].Value = item["QuestionText"];
+                                worksheet.Cells[row, 3].Value = item["OptionA"];
+                                worksheet.Cells[row, 4].Value = item["OptionB"];
+                                worksheet.Cells[row, 5].Value = item["OptionC"];
+                                worksheet.Cells[row, 6].Value = item["OptionD"];
+                                worksheet.Cells[row, 7].Value = item["CorrectOption"];
+                                worksheet.Cells[row, 8].Value = item["QuestionMarks"];
+                                worksheet.Cells[row, 9].Value = Convert.ToBoolean(item["IsActive"]);
+                                worksheet.Cells[row, 10].Value = item["QuestionLevelID"];
+                                worksheet.Cells[row, 11].Value = item["QuestionLevel"];
+                                worksheet.Cells[row, 12].Value = item["UserID"];
+                                worksheet.Cells[row, 13].Value = item["UserName"];
+                                worksheet.Cells[row, 14].Value = item["Created"] != DBNull.Value ? Convert.ToDateTime(item["Created"]) : (DateTime?)null;
+                                worksheet.Cells[row, 15].Value = item["Modified"] != DBNull.Value ? Convert.ToDateTime(item["Modified"]) : (DateTime?)null;
+                                row++;
+                            }
+
+                            var stream = new MemoryStream();
+                            package.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string excelName = $"Questions-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
