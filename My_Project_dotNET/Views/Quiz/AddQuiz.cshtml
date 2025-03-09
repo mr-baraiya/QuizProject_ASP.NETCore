@@ -69,7 +69,7 @@
             <div class="row mb-3">
                 <label asp-for="QuizDate" class="col-sm-3 col-form-label"><span class="text-danger">*</span>Quiz Date</label>
                 <div class="col-sm">
-                    <input asp-for="QuizDate" class="form-control" type="date">
+                    <input type="date" asp-for="QuizDate" class="form-control" value="@(Model.QuizDate == DateTime.MinValue ? "" : Model.QuizDate.ToString("yyyy-MM-dd"))" />
                     <span asp-validation-for="QuizDate" class="text-danger"></span>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <label asp-for="UserID" class="col-sm-3 col-form-label"><span class="text-danger">*</span>User</label>
                 <div class="col-sm">
                     <select asp-for="UserID" class="form-control" asp-items="@(new SelectList(ViewBag.UserList, "UserID", "UserName"))">
-                        <option value="">Select User</option>
+                        <option disabled>Select User</option>
                     </select>
                     <span asp-validation-for="UserID" class="text-danger"></span>
                 </div>
