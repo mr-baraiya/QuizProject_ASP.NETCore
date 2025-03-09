@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using My_Project_dotNET.Models;
+using OfficeOpenXml;
 
 namespace My_Project_dotNET.Controllers
 {
@@ -156,5 +157,65 @@ namespace My_Project_dotNET.Controllers
             }
             ViewBag.UserList = UserList;
         }
+
+        [HttpGet]
+        public IActionResult ExportQuizzesToExcel()
+        {
+            string connectionString = configuration.GetConnectionString("ConnectionString");
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = sqlConnection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "PR_MST_Quiz_SelectAll";
+
+                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    {
+                        DataTable data = new DataTable();
+                        data.Load(sqlDataReader);
+
+                        using (var package = new ExcelPackage())
+                        {
+                            var worksheet = package.Workbook.Worksheets.Add("Quizzes");
+
+                            // Add headers
+                            worksheet.Cells[1, 1].Value = "QuizID";
+                            worksheet.Cells[1, 2].Value = "QuizName";
+                            worksheet.Cells[1, 3].Value = "TotalQuestions";
+                            worksheet.Cells[1, 4].Value = "QuizDate";
+                            worksheet.Cells[1, 5].Value = "UserID";
+                            worksheet.Cells[1, 6].Value = "UserName";
+                            worksheet.Cells[1, 7].Value = "Created";
+                            worksheet.Cells[1, 8].Value = "Modified";
+
+                            // Add data
+                            int row = 2;
+                            foreach (DataRow item in data.Rows)
+                            {
+                                worksheet.Cells[row, 1].Value = item["QuizID"];
+                                worksheet.Cells[row, 2].Value = item["QuizName"];
+                                worksheet.Cells[row, 3].Value = item["TotalQuestions"];
+                                worksheet.Cells[row, 4].Value = item["QuizDate"] != DBNull.Value ? Convert.ToDateTime(item["QuizDate"]) : (DateTime?)null;
+                                worksheet.Cells[row, 5].Value = item["UserID"];
+                                worksheet.Cells[row, 6].Value = item["UserName"];
+                                worksheet.Cells[row, 7].Value = item["Created"] != DBNull.Value ? Convert.ToDateTime(item["Created"]) : (DateTime?)null;
+                                worksheet.Cells[row, 8].Value = item["Modified"] != DBNull.Value ? Convert.ToDateTime(item["Modified"]) : (DateTime?)null;
+                                row++;
+                            }
+
+                            var stream = new MemoryStream();
+                            package.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string excelName = $"Quizzes-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
