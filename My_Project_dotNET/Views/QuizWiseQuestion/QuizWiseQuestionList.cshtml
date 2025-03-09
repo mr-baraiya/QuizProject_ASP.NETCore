@@ -67,9 +67,10 @@
             <div class="col-sm-3">
                 <select class="form-select">
                     <option selected disabled>Select Quiz</option>
-                    <option>English Grammer</option>
-                    <option>Mtaths </option>
-                    <option>G.K</option>
+                    @foreach (var quiz in ViewBag.QuizList)
+                    {
+                        <option value="@quiz.QuizID">@quiz.QuizName</option>
+                    }
                 </select>
             </div>
         </div>
@@ -86,7 +87,7 @@
                 <h3>Quiz Wise Questions</h3>
             </div>
             <div class="col-sm-6 d-flex justify-content-end">
-                <div class="mx-1"><a class="btn btn-primary" href="@Url.Action("AddQuizWiseQuestion","QuizWiseQuestion")">Add Quiz Wise Questions</a></div>
+                <div class="mx-1"><a class="btn btn-primary" href="@Url.Action("AddQuiz","Quiz")">Add Quiz</a></div>
             </div>
         </div>
         <div class="row mb-3">
@@ -96,10 +97,8 @@
             <thead class="table-lite">
                 <tr>
                     <th>Quiz Name</th>
-                    <th>Entered Questions</th>
-                    <th>User Name</th>
-                    <td>Created</td>
-                    <td>Modified</td>
+                    <th>Total Questions</th>
+                    <th>Quiz Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -109,10 +108,12 @@
                     <tr>
                         <td>@row["QuizName"]</td>
                         <td>@row["TotalQuestions"]</td>
-                        <td>@row["UserName"]</td>
-                        <td>@row["Created"]</td>
-                        <td>@row["Modified"]</td>
+                        <td>@row["QuizDate"]</td>
                         <td class="d-flex">
+                            <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDetails" asp-route-QuizID="@row["QuizID"]"
+                               class="mx-1 btn btn-outline-primary" data-bs-toggle="tooltip" title="Quiz Wise Questions">
+                                <i class="bi bi-info-circle"></i>
+                            </a>
                             <a asp-controller="Quiz" asp-action="AddQuiz" asp-route-QuizID="@row["QuizID"]"
                                class="mx-1 btn btn-outline-success" data-bs-toggle="tooltip" title="Edit">
                                 <i class="bi bi-pencil-fill"></i>
