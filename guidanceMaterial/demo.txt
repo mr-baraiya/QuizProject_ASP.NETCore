@@ -26,3 +26,12 @@ asp-route-Questionid
 #endregion
 
 [NonAction]
+
+1. Program.cs = Middleware
+2.HttpContext.Session.GetString("UserID",dr["UserId"])
+3.[Route],[Area],[HttpPost],[RequireHttps]
+
+4. befor action method and
+ after action method
+if i want to do something then actionFilters 
+(Auth,Excep,) 
