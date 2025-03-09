@@ -1,6 +1,11 @@
-﻿@{
+﻿@model DataTable
+@using System.Data
+@{
     ViewData["Title"] = "Home Page";
+    var quizzes = ViewData["RecentQuizzes"] as DataTable;
+    var questions = ViewData["RecentQuestions"] as DataTable;
 }
+
 <div class="pagetitle">
     <h1>Dashboard Statistics</h1>
     <nav>
@@ -14,6 +19,7 @@
         </ol>
     </nav>
 </div><!-- End Page Title -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,22 +61,23 @@
                 <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
                     <div class="row">
                         <div class="col-sm">
-                            <h3>Total Quizes</h3>
+                            <h3>Total Quizzes</h3>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <hr/>
+                        <hr />
                     </div>
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-sm-2 text-primary bg-primary-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
                             <i class="bi bi-cart"></i>
                         </div>
                         <div class="col-sm">
+                            @* <h4>@Model.TotalQuizzes</h4> *@
                             <h4>10</h4>
                         </div>
                     </div>
                 </div>
-            </div><!-- Total Quizes End -->
+            </div><!-- Total Quizzes End -->
             <div class="col-sm-4">
                 <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
                     <div class="row">
@@ -83,9 +90,10 @@
                     </div>
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-sm-2 text-warning bg-warning-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
-                            <i class="bi bi-cart"></i>
+                            <i class="bi bi-question-circle"></i>
                         </div>
                         <div class="col-sm">
+                            @* <h4>@Model.TotalQuestions</h4> *@
                             <h4>10</h4>
                         </div>
                     </div>
@@ -95,7 +103,7 @@
                 <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
                     <div class="row">
                         <div class="col-sm">
-                            <h3>Total Questions Levels</h3>
+                            <h3>Total Question Levels</h3>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -103,124 +111,61 @@
                     </div>
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-sm-2 text-success bg-success-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
-                            <i class="bi bi-cart"></i>
+                            <i class="bi bi-bar-chart"></i>
                         </div>
                         <div class="col-sm">
+                            @* <h4>@Model.TotalQuestionLevels</h4> *@
                             <h4>10</h4>
                         </div>
                     </div>
                 </div>
             </div><!-- Total Question Levels End -->
         </div>
+
         <div class="row mb-3">
             <div class="col-sm-6">
                 <div class="container p-3 bg-white w-100 p-2 border border-dark border-1 rounded">
                     <div class="row">
-                        <div class="col-sm"><h3>Recent 10 Quizes</h3></div>
+                        <div class="col-sm"><h3>Recent 10 Quizzes</h3></div>
                     </div>
                     <div class="row mb-3">
                         <hr />
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Quiz ID</th>
-                                        <th>Quiz Name</th>
-                                        <th>Total Questions</th>
-                                        <th>Quiz Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>English Grammer</td>
-                                        <td>12</td>
-                                        <td>2024-10-25</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            @* <table class="table table-striped"> *@
-                            @*     <thead> *@
-                            @*         <tr> *@
-                            @*             <th>Quiz Name</th> *@
-                            @*             <th>User Name</th> *@
-                            @*             <th>Quiz Date</th> *@
-                            @*             <th>Total Questions</th> *@
-                            @*         </tr> *@
-                            @*     </thead> *@
-                            @*     <tbody> *@
-                            @*         @foreach (DataRow row in Model.Rows) *@
-                            @*         { *@
-                            @*             <tr> *@
-                            @*                 <td><input type="checkbox" /></td> *@
-                            @*                 <td>@row["QuizName"]</td> *@
-                            @*                 <td>@row["UserName"]</td> *@
-                            @*                 <td>@row["QuizDate"]</td> *@
-                            @*                 <td>@row["TotalQuestions"]</td> *@
-                            @*             </tr> *@
-                            @*         } *@
-                            @*     </tbody> *@
-                            @* </table> *@
+                            @if (quizzes != null && quizzes.Rows.Count > 0)
+                            {
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            @foreach (DataColumn col in quizzes.Columns)
+                                            {
+                                                <th>@col.ColumnName</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (DataRow row in quizzes.Rows)
+                                        {
+                                            <tr>
+                                                @foreach (var item in row.ItemArray)
+                                                {
+                                                    <td>@item</td>
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p>No recent quizzes available.</p>
+                            }
                         </div>
                     </div>
                 </div>
-            </div><!-- Recent 10 Quizes -->
+            </div><!-- Recent 10 Quizzes -->
+
             <div class="col-sm-6">
                 <div class="container p-3 bg-white w-100 p-2 border border-dark border-1 rounded">
                     <div class="row">
@@ -231,85 +176,40 @@
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Question ID</th>
-                                        <th>Question</th>
-                                        <th>Question Markes</th>
-                                        <th>Correct Option</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Who is Iron Man ?</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            @if (questions != null && questions.Rows.Count > 0)
+                            {
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            @foreach (DataColumn col in questions.Columns)
+                                            {
+                                                <th>@col.ColumnName</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (DataRow row in questions.Rows)
+                                        {
+                                            <tr>
+                                                @foreach (var item in row.ItemArray)
+                                                {
+                                                    <td>@item</td>
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p>No recent questions available.</p>
+                            }
                         </div>
                     </div>
                 </div>
-            </div><!--  Recent 10 Questions -->
+            </div><!-- Recent 10 Questions -->
         </div>
     </div>
-    
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
