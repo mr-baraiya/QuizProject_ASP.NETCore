@@ -28,8 +28,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/product/product.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NccHJvZHVjdFxwcm9kdWN0LmNzaHRtbA==
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/QuestionLevel/AddQuestionLevel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25MZXZlbFxBZGRRdWVzdGlvbkxldmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/QuestionLevel/QuestionLevelList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25MZXZlbFxRdWVzdGlvbkxldmVsTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Question/AddQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cQWRkUXVlc3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Question/QuestionList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cUXVlc3Rpb25MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/QuizWiseQuestion/AddQuizWiseQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpeldpc2VRdWVzdGlvblxBZGRRdWl6V2lzZVF1ZXN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/QuizWiseQuestion/QuizWiseQuestionDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpeldpc2VRdWVzdGlvblxRdWl6V2lzZVF1ZXN0aW9uRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/QuizWiseQuestion/QuizWiseQuestionList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpeldpc2VRdWVzdGlvblxRdWl6V2lzZVF1ZXN0aW9uTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Quiz/AddQuiz.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpelxBZGRRdWl6LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Quiz/QuizList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpelxRdWl6TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Shared/Error.cshtml]
@@ -42,6 +74,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/User/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/User/UserList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS_CODES/.NET_Code/QuizProject_ASP.NETCore/My_Project_dotNET/Views/_ViewImports.cshtml]

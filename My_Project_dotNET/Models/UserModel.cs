@@ -24,8 +24,8 @@ namespace My_Project_dotNET.Models
         [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please enter mobile number.")]
-        [RegularExpression(@"^\+?\d{10,15}$", ErrorMessage = "Please enter a valid phone number.")]
+        [Required(ErrorMessage = "Please enter a mobile number.")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Please enter a valid 10-digit phone number.")]
         public string Mobile { get; set; }
 
         public bool IsActive { get; set; } = true; // Default: Active user

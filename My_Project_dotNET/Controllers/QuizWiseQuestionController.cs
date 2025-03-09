@@ -26,6 +26,7 @@ namespace My_Project_dotNET.Controllers
             SqlDataReader reader = command.ExecuteReader();
             DataTable table = new DataTable();
             table.Load(reader);
+            QuizDropDown();
             return View(table);
         }
 
