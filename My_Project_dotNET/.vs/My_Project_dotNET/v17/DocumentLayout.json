@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\questionlevel\\questionlevellist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\questionlevel\\questionlevellist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\questionlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\questionlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\quiz\\quizlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\quiz\\quizlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\quizwisequestioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\quizwisequestioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\quizwisequestion\\quizwisequestionlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\quizwisequestion\\quizwisequestionlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,20 +35,12 @@
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\quiz\\addquiz.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\controllers\\quizwisequestioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:controllers\\quizwisequestioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\quizwisequestion\\addquizwisequestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\quizwisequestion\\addquizwisequestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\models\\quizmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:models\\quizmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82178684-A835-43C0-AE55-8C998665E976}|My_Project_dotNET.csproj|d:\\vs_codes\\.net_code\\quizproject_asp.netcore\\my_project_dotnet\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +58,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuestionLevelList.cshtml",
+              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\QuestionLevel\\QuestionLevelList.cshtml",
+              "RelativeDocumentMoniker": "Views\\QuestionLevel\\QuestionLevelList.cshtml",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\QuestionLevel\\QuestionLevelList.cshtml",
+              "RelativeToolTip": "Views\\QuestionLevel\\QuestionLevelList.cshtml",
+              "ViewState": "AgIAABgAAACANDMzMzMLwEQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T13:39:55.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "QuizList.cshtml",
+              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Quiz\\QuizList.cshtml",
+              "RelativeDocumentMoniker": "Views\\Quiz\\QuizList.cshtml",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Quiz\\QuizList.cshtml",
+              "RelativeToolTip": "Views\\Quiz\\QuizList.cshtml",
+              "ViewState": "AgIAAFMAAAAALjMzMzMLwGoAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T13:39:31.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuestionLevelController.cs",
+              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuestionLevelController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuestionLevelController.cs",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuestionLevelController.cs",
+              "RelativeToolTip": "Controllers\\QuestionLevelController.cs",
+              "ViewState": "AgIAACMAAACAZmZmZmYuwJsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T13:38:58.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuizController.cs",
+              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuizController.cs",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizController.cs",
+              "RelativeToolTip": "Controllers\\QuizController.cs",
+              "ViewState": "AgIAABEAAABgMTMzMzMiwKAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T13:37:29.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AddQuizWiseQuestion.cshtml",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\QuizWiseQuestion\\AddQuizWiseQuestion.cshtml",
               "RelativeDocumentMoniker": "Views\\QuizWiseQuestion\\AddQuizWiseQuestion.cshtml",
@@ -54,12 +122,11 @@
               "RelativeToolTip": "Views\\QuizWiseQuestion\\AddQuizWiseQuestion.cshtml",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-09T13:21:35.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T13:21:35.282Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "AddQuiz.cshtml",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Quiz\\AddQuiz.cshtml",
               "RelativeDocumentMoniker": "Views\\Quiz\\AddQuiz.cshtml",
@@ -67,25 +134,11 @@
               "RelativeToolTip": "Views\\Quiz\\AddQuiz.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-09T12:55:58.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T12:55:58.494Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuizModel.cs",
-              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\QuizModel.cs",
-              "RelativeDocumentMoniker": "Models\\QuizModel.cs",
-              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\QuizModel.cs",
-              "RelativeToolTip": "Models\\QuizModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T12:54:04.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "QuizWiseQuestionList.cshtml",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
               "RelativeDocumentMoniker": "Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
@@ -93,18 +146,17 @@
               "RelativeToolTip": "Views\\QuizWiseQuestion\\QuizWiseQuestionList.cshtml",
               "ViewState": "AgIAAGgAAAAAJzMzMzMLwHEAAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-09T12:45:19.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T12:45:19.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "QuizWiseQuestionController.cs",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizWiseQuestionController.cs",
               "RelativeDocumentMoniker": "Controllers\\QuizWiseQuestionController.cs",
               "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Controllers\\QuizWiseQuestionController.cs",
               "RelativeToolTip": "Controllers\\QuizWiseQuestionController.cs",
-              "ViewState": "AgIAABMAAAAALzMzMzMtwJ4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T12:45:05.72Z",
               "EditorCaption": ""
@@ -117,14 +169,25 @@
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAABAmZmZmRkmwGoBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-09T13:16:00.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T13:16:00.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "QuizModel.cs",
+              "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\QuizModel.cs",
+              "RelativeDocumentMoniker": "Models\\QuizModel.cs",
+              "ToolTip": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\QuizModel.cs",
+              "RelativeToolTip": "Models\\QuizModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T12:54:04.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "UserModel.cs",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "Models\\UserModel.cs",
@@ -136,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "QuizWiseQuestionModel.cs",
               "DocumentMoniker": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\Models\\QuizWiseQuestionModel.cs",
               "RelativeDocumentMoniker": "Models\\QuizWiseQuestionModel.cs",

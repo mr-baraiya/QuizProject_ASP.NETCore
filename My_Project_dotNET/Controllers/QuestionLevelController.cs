@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using My_Project_dotNET.Models;
+using OfficeOpenXml;
 
 namespace My_Project_dotNET.Controllers
 {
@@ -150,5 +151,59 @@ namespace My_Project_dotNET.Controllers
             }
             ViewBag.UserList = UserList;
         }
+
+        [HttpGet]
+        public IActionResult ExportQuestionLevelsToExcel()
+        {
+            string connectionString = configuration.GetConnectionString("ConnectionString");
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = sqlConnection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "PR_MST_QuestionLevel_SelectAll"; // Replace with the stored procedure name
+
+                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    {
+                        DataTable data = new DataTable();
+                        data.Load(sqlDataReader);
+
+                        using (var package = new ExcelPackage())
+                        {
+                            var worksheet = package.Workbook.Worksheets.Add("QuestionLevels");
+
+                            // Add headers
+                            worksheet.Cells[1, 1].Value = "QuestionLevelID";
+                            worksheet.Cells[1, 2].Value = "QuestionLevel";
+                            worksheet.Cells[1, 3].Value = "UserID";
+                            worksheet.Cells[1, 4].Value = "Created";
+                            worksheet.Cells[1, 5].Value = "Modified";
+
+                            // Add data
+                            int row = 2;
+                            foreach (DataRow item in data.Rows)
+                            {
+                                worksheet.Cells[row, 1].Value = item["QuestionLevelID"];
+                                worksheet.Cells[row, 2].Value = item["QuestionLevel"];
+                                worksheet.Cells[row, 3].Value = item["UserID"];
+                                worksheet.Cells[row, 4].Value = item["Created"] != DBNull.Value ? Convert.ToDateTime(item["Created"]) : (DateTime?)null;
+                                worksheet.Cells[row, 5].Value = item["Modified"] != DBNull.Value ? Convert.ToDateTime(item["Modified"]) : (DateTime?)null;
+                                row++;
+                            }
+
+                            var stream = new MemoryStream();
+                            package.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string excelName = $"QuestionLevels-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

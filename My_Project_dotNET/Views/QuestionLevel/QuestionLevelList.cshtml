@@ -54,6 +54,7 @@
 
 <body>
     <span class="text-danger text-md-center">@TempData["ErrorMessage"]</span>
+    
     <div class="container mt-4 bg-white w-100 p-3 border border-dark border-1 rounded">
         <div class="row">
             <div class="col-sm-6">
@@ -62,6 +63,7 @@
             <div class="col-sm-6 d-flex justify-content-end">
                 <div class="mx-1"><a class="btn btn-danger" href="@Url.Action("Index","Home")">Delete Selected</a> </div>
                 <div class="mx-1"><a class="btn btn-primary" href="@Url.Action("AddQuestionLevel","QuestionLevel")">Add Question Level</a> </div>
+                <div class="mx-1"><a class="btn btn-success" href="@Url.Action("ExportQuestionLevelsToExcel","QuestionLevel")">Download ExcelSheet</a></div>
             </div>
         </div>
         <div class="row mb-3">
