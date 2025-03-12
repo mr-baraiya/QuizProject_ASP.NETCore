@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@model My_Project_dotNET.Models.UserLoginModel;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,26 +37,25 @@
                 <div class="card p-4 shadow">
                     <h3 class="text-center">Login to Your Account</h3>
                     <p class="text-center text-muted">Enter your Username & password to login</p>
-                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-                    {
-                        <div class="alert alert-danger text-center">
-                            @ViewBag.ErrorMessage
-                        </div>
-                    }
-                    <form method="post" asp-action="Login" asp-controller="User">
+                    <form method="post" asp-controller="User" asp-action="UserLogin">
                         <div class="mb-3">
                             <label class="form-label">UserName</label>
-                            <input type="text" name="LoginIdentifier" class="form-control" placeholder="Enter Username" required>
+                            <input class="form-control" type="text" asp-for="UserName" placeholder="Enter username">
+                            <span asp-validation-for="UserName" class="focus-input100"></span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" name="Password" class="form-control" placeholder="Enter Password" required>
+                            <input class="form-control" type="password" asp-for="Password" placeholder="Enter password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Login</button>
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class=" alert alert-danger text-center mt-2">@Html.Raw(@Convert.ToString(TempData["ErrorMessage"]))</div>
+                        }
                     </form>
 
                     <p class="text-center mt-3">Don't have an account? <a asp-area="" asp-controller="User" asp-action="Register">Create an account</a></p>
-                    <p class="text-center mt-3">Login as <a asp-area="" asp-controller="Home" asp-action="Index">Guest</a></p>
                 </div>
             </div><!-- End Login Form -->
         </div>
@@ -71,5 +71,10 @@
     <link href="~/assets/img/favicon.png" rel="icon">
     <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <script src="~/assets/js/main.js"></script>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
 </body>
 </html>
