@@ -93,47 +93,79 @@ namespace My_Project_dotNET.Controllers
             return View(model);
         }
 
-        [HttpGet]
+
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(UserModel model)
+        public IActionResult UserLogin(UserLoginModel userLoginModel)
         {
+            
+            string ErrorMsg = string.Empty;
+
+            if (string.IsNullOrEmpty(userLoginModel.UserName))
+            {
+                ErrorMsg += "User Name is Required";
+            }
+
+            if (string.IsNullOrEmpty(userLoginModel.Password))
+            {
+                ErrorMsg += "<br/>Password is Required";
+            }
+
             if (ModelState.IsValid)
             {
-                string connectionString = configuration.GetConnectionString("ConnectionString");
+                SqlConnection conn = new SqlConnection(this.configuration.GetConnectionString("ConnectionString"));
+                conn.Open();
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                SqlCommand objCmd = conn.CreateCommand();
+
+                objCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                objCmd.CommandText = "PR_MST_User_Login";
+                objCmd.Parameters.AddWithValue("@UserName", userLoginModel.UserName);
+                objCmd.Parameters.AddWithValue("@Password", userLoginModel.Password);
+
+                SqlDataReader objSDR = objCmd.ExecuteReader();
+
+                DataTable dtLogin = new DataTable();
+
+                // Check if Data Reader has Rows or not
+                // if row(s) does not exists that means either username or password or both are invalid.
+                if (!objSDR.HasRows)
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("PR_MST_User_SelectByUserNamePassword", connection))
+                    TempData["ErrorMessage"] = "Invalid User Name or Password";
+                    return RedirectToAction("Login", "User");
+                }
+                else
+                {
+                    dtLogin.Load(objSDR);
+
+                    //Load the retrived data to session through HttpContext.
+                    foreach (DataRow dr in dtLogin.Rows)
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@username", model.UserName);
-                        command.Parameters.AddWithValue("@Password", model.Password);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                HttpContext.Session.SetString("UserName", reader["UserName"].ToString());
-                                bool isAdmin = Convert.ToBoolean(reader["IsAdmin"]);
-
-                                return isAdmin ? RedirectToAction("Index", "Home") : RedirectToAction("Index", "Home");
-                            }
-                            else
-                            {
-                                ViewBag.ErrorMessage = "Invalid credentials.";
-                                return View(model);
-                            }
-                        }
+                        HttpContext.Session.SetString("UserID", dr["UserID"].ToString());
+                        HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
+                        HttpContext.Session.SetString("Mobile", dr["Mobile"].ToString());
+                        HttpContext.Session.SetString("Email", dr["Email"].ToString());
+                        HttpContext.Session.SetString("Password", dr["Password"].ToString());
                     }
+                    return RedirectToAction("Index", "Home");
                 }
             }
-            return View(model);
+            else
+            {
+                TempData["ErrorMessage"] = ErrorMsg;
+                return RedirectToAction("Login", "User");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }
