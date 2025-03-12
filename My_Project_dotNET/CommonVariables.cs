@@ -34,5 +34,35 @@
             }
             return UserName;
         }
+
+        public static string? Mobile()
+        {
+            string? Mobile = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("Mobile") != null)
+            {
+                Mobile = _httpContextAccessor.HttpContext.Session.GetString("Mobile").ToString();
+            }
+            return Mobile;
+        }
+
+        public static string? Email()
+        {
+            string? Email = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("Email") != null)
+            {
+                Email = _httpContextAccessor.HttpContext.Session.GetString("Email").ToString();
+            }
+            return Email;
+        }
+
+        public static string? Password()
+        {
+            string? Password = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("Password") != null)
+            {
+                Password = _httpContextAccessor.HttpContext.Session.GetString("Password").ToString();
+            }
+            return Password;
+        }
     }
 }
