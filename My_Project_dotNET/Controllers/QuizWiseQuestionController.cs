@@ -5,6 +5,7 @@ using My_Project_dotNET.Models;
 
 namespace My_Project_dotNET.Controllers
 {
+    [CheckAccess]
     public class QuizWiseQuestionController : Controller
     {
 
