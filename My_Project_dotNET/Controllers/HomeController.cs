@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace My_Project_dotNET.Controllers
 {
+    [CheckAccess]
     public class HomeController : Controller
     {
         private IConfiguration configuration;
