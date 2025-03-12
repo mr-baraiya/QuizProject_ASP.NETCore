@@ -16,21 +16,21 @@ namespace My_Project_dotNET.Controllers
             this.configuration = _configuration;
         }
 
-        //[HttpGet]
-        //[Route("ShowUsers")]
-        //public IActionResult UserList()
-        //{
-        //    string connectionString = this.configuration.GetConnectionString("ConnectionString");
-        //    SqlConnection connection = new SqlConnection(connectionString);
-        //    connection.Open();
-        //    SqlCommand command = connection.CreateCommand();
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.CommandText = "PR_MST_User_SelectAll";
-        //    SqlDataReader reader = command.ExecuteReader();
-        //    DataTable table = new DataTable();
-        //    table.Load(reader);
-        //    return View(table);
-        //}
+        [HttpGet]
+        [Route("ShowUsers")]
+        public IActionResult UserList()
+        {
+            string connectionString = this.configuration.GetConnectionString("ConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_MST_User_SelectAll";
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+            return View(table);
+        }
 
         [HttpGet]
         public IActionResult UserDelete(int UserID)
@@ -93,7 +93,7 @@ namespace My_Project_dotNET.Controllers
             return View(model);
         }
 
-
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
