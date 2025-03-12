@@ -37,9 +37,15 @@ namespace My_Project_dotNET.Models
         public DateTime Modified { get; set; } = DateTime.UtcNow; // Auto-set on insert/update
     }
 
-    public class UserDropDownModel
+    public class UserLoginModel
     {
-        public int UserID { get; set; }
+        [Required(ErrorMessage = "Please enter user name.")]
+        [MaxLength(100, ErrorMessage = "Username can't be longer than 100 characters.")]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage = "Please enter password.")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long.")]
+        [RegularExpression(@"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$", ErrorMessage = "Password must contain at least one letter, one number, and one special character.")]
+        public string Password { get; set; }
     }
 }
