@@ -68,7 +68,6 @@ namespace My_Project_dotNET.Controllers
                     Created = DateTime.Now
                 };
                 QuestionLevelDropDown();
-                UserDropDown();
                 return View(m);
             }
 
@@ -97,13 +96,12 @@ namespace My_Project_dotNET.Controllers
                 model.CorrectOption = dataRow["CorrectOption"].ToString();
                 model.QuestionMarks = Convert.ToInt32(dataRow["QuestionMarks"]);
                 model.IsActive = Convert.ToBoolean(dataRow["IsActive"]);
-                model.UserID = Convert.ToInt32(dataRow["UserID"]);
+                model.UserID = Convert.ToInt32(CommonVariables.UserID());
                 model.Created = dataRow["Created"] != DBNull.Value ? Convert.ToDateTime(dataRow["Created"]) : DateTime.UtcNow;
                 model.Modified = dataRow["Modified"] != DBNull.Value ? Convert.ToDateTime(dataRow["Modified"]) : DateTime.UtcNow;
             }
 
             QuestionLevelDropDown();
-            UserDropDown();
             return View(model);
         }
 
@@ -138,39 +136,20 @@ namespace My_Project_dotNET.Controllers
                 command.Parameters.Add("@QuestionLevelID", SqlDbType.Int).Value = model.QuestionLevelID;
                 command.Parameters.Add("@CorrectOption", SqlDbType.VarChar).Value = model.CorrectOption;
                 command.Parameters.Add("@QuestionMarks", SqlDbType.Int).Value = model.QuestionMarks;
-                command.Parameters.Add("@UserID", SqlDbType.Int).Value = model.UserID;
+                command.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariables.UserID();
 
                 command.ExecuteNonQuery();
                 return RedirectToAction("QuestionList");
             }
-
-            QuestionLevelDropDown();
-            UserDropDown();
-            return RedirectToAction("QuestionList");
-        }
-
-        [HttpGet]
-        public void UserDropDown()
-        {
-            string connectionString = this.configuration.GetConnectionString("ConnectionString");
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-            SqlCommand command2 = connection.CreateCommand();
-            command2.CommandType = System.Data.CommandType.StoredProcedure;
-            command2.CommandText = "PR_MST_User_Fill_Dropdown";
-            //command2.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariable.UserID();
-            SqlDataReader reader2 = command2.ExecuteReader();
-            DataTable dataTable2 = new DataTable();
-            dataTable2.Load(reader2);
-            List<UserDropDownModel> UserList = new List<UserDropDownModel>();
-            foreach (DataRow data in dataTable2.Rows)
+            if (!ModelState.IsValid)
             {
-                UserDropDownModel model = new UserDropDownModel();
-                model.UserID = Convert.ToInt32(data["UserID"]);
-                model.UserName = data["UserName"].ToString();
-                UserList.Add(model);
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Error: {error.ErrorMessage}");
+                }
             }
-            ViewBag.UserList = UserList;
+            QuestionLevelDropDown();
+            return RedirectToAction("QuestionList");
         }
 
         [HttpGet]
