@@ -6,6 +6,7 @@ using OfficeOpenXml;
 
 namespace My_Project_dotNET.Controllers
 {
+    [CheckAccess]
     public class QuestionController : Controller
     {
         private IConfiguration configuration;
