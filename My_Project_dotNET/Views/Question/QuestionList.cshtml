@@ -108,50 +108,52 @@
         <div class="row mb-3">
             <hr />
         </div>
-        <table class="table datatable table-striped" cellspacing="5" cellpadding="10">
-            <thead class="table-lite">
-                <tr>
-                    <th>Question</th>
-                    <th>Question Level</th>
-                    <th>Option-A</th>
-                    <th>Option-B</th>
-                    <th>Option-C</th>
-                    <th>Option-D</th>
-                    <th>Answer</th>
-                    <th>Question Marks</th>
-                    <th>Is Active</th>
-                    <th>User Name</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (DataRow row in Model.Rows)
-                {
+        <div style="overflow:auto">
+            <table class="table datatable table-striped" cellspacing="5" cellpadding="10">
+                <thead class="table-lite">
                     <tr>
-                        <td>@row["QuestionText"]</td>
-                        <td>@row["QuestionLevel"]</td>
-                        <td>@row["OptionA"]</td>
-                        <td>@row["OptionB"]</td>
-                        <td>@row["OptionC"]</td>
-                        <td>@row["OptionD"]</td>
-                        <td>@row["CorrectOption"]</td>
-                        <td>@row["QuestionMarks"]</td>
-                        <td>@row["IsActive"]</td>
-                        <td>@row["UserName"]</td>
-                        <td>
-                            <a asp-controller="Question" asp-action="AddQuestion" asp-route-QuestionID="@row["QuestionID"]"
-                               class="my-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]"
-                               class="my-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <th>Question</th>
+                        <th>Question Level</th>
+                        <th>Option-A</th>
+                        <th>Option-B</th>
+                        <th>Option-C</th>
+                        <th>Option-D</th>
+                        <th>Answer</th>
+                        <th>Question Marks</th>
+                        <th>Is Active</th>
+                        <th>User Name</th>
+                        <th>Action</th>
                     </tr>
-                }
-            </tbody>
-        </table><!-- End of Table -->
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.Rows)
+                    {
+                        <tr>
+                            <td>@row["QuestionText"]</td>
+                            <td>@row["QuestionLevel"]</td>
+                            <td>@row["OptionA"]</td>
+                            <td>@row["OptionB"]</td>
+                            <td>@row["OptionC"]</td>
+                            <td>@row["OptionD"]</td>
+                            <td>@row["CorrectOption"]</td>
+                            <td>@row["QuestionMarks"]</td>
+                            <td>@row["IsActive"]</td>
+                            <td>@row["UserName"]</td>
+                            <td>
+                                <a asp-controller="Question" asp-action="AddQuestion" asp-route-QuestionID="@row["QuestionID"]"
+                                   class="my-1 btn btn-outline-success btn-xs" data-bs-toggle="tooltip" title="Edit">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                                <a asp-controller="Question" asp-action="QuestionDelete" asp-route-QuestionID="@row["QuestionID"]"
+                                   class="my-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table><!-- End of Table -->
+        </div>
     </div><!-- End of Table -->
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
