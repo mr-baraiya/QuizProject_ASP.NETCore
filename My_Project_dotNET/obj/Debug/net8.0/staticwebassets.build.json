@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AejoLakdAVqbALkS/YKMI1Zykg1+9HEK1wfD713HjyM=",
+  "Hash": "s0OQpwdBYQ6GAuX+CwFhct/mvv+p6Q90bk0YxNV4+4M=",
   "Source": "My_Project_dotNET",
   "BasePath": "_content/My_Project_dotNET",
   "Mode": "Default",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6rffgsn36q",
-      "Integrity": "ftL96wM+qOCyVmLAg6RZBhNuTFwz6tf16SWuWfuctQk=",
+      "Fingerprint": "j06y2d3pyu",
+      "Integrity": "DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\logo.png"
@@ -10868,7 +10868,7 @@
       ]
     },
     {
-      "Route": "assets/img/logo.6rffgsn36q.png",
+      "Route": "assets/img/logo.j06y2d3pyu.png",
       "AssetFile": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\img\\logo.png",
       "Selectors": [],
       "ResponseHeaders": [
@@ -10878,7 +10878,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "738"
+          "Value": "5483"
         },
         {
           "Name": "Content-Type",
@@ -10886,11 +10886,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ftL96wM+qOCyVmLAg6RZBhNuTFwz6tf16SWuWfuctQk=\""
+          "Value": "\"DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 11:00:47 GMT"
+          "Value": "Thu, 13 Mar 2025 03:54:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10900,7 +10900,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "6rffgsn36q"
+          "Value": "j06y2d3pyu"
         },
         {
           "Name": "label",
@@ -10908,7 +10908,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ftL96wM+qOCyVmLAg6RZBhNuTFwz6tf16SWuWfuctQk="
+          "Value": "sha256-DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="
         }
       ]
     },
@@ -10923,7 +10923,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "738"
+          "Value": "5483"
         },
         {
           "Name": "Content-Type",
@@ -10931,11 +10931,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ftL96wM+qOCyVmLAg6RZBhNuTFwz6tf16SWuWfuctQk=\""
+          "Value": "\"DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 11:00:47 GMT"
+          "Value": "Thu, 13 Mar 2025 03:54:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10945,7 +10945,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ftL96wM+qOCyVmLAg6RZBhNuTFwz6tf16SWuWfuctQk="
+          "Value": "sha256-DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="
         }
       ]
     },
