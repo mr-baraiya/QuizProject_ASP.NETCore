@@ -105,7 +105,6 @@ namespace My_Project_dotNET.Controllers
             return View(model);
         }
 
-        [HttpPost]
         public IActionResult QuestionAddEdit(QuestionModel model)
         {
             if (ModelState.IsValid)
