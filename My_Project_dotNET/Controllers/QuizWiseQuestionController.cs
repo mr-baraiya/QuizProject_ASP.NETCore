@@ -63,7 +63,6 @@ namespace My_Project_dotNET.Controllers
         {
             QuestionDropDown();
             QuizDropDown();
-            UserDropDown();
             return View();
         }
 
@@ -98,41 +97,19 @@ namespace My_Project_dotNET.Controllers
 
                 command.Parameters.Add("@UserId", SqlDbType.Int).Value = model.UserID;
 
+                command.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariables.UserID();
 
                 command.Parameters.Add("@Modified", SqlDbType.DateTime).Value = model.Modified;
                 command.ExecuteNonQuery();
 
                 QuestionDropDown();
-                UserDropDown();
                 QuizDropDown();
                 return RedirectToAction("QuizWiseQuestionList");
             }
 
             return View("QuizWiseQuestionList", model);
         }
-        public void UserDropDown()
-        {
-            string connectionString = this.configuration.GetConnectionString("ConnectionString");
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-            SqlCommand command2 = connection.CreateCommand();
-            command2.CommandType = System.Data.CommandType.StoredProcedure;
-            command2.CommandText = "PR_MST_User_Fill_Dropdown";
-            //command2.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariable.UserID();
-            SqlDataReader reader2 = command2.ExecuteReader();
-            DataTable dataTable2 = new DataTable();
-            dataTable2.Load(reader2);
-            List<UserDropDownModel> UserList = new List<UserDropDownModel>();
-            foreach (DataRow data in dataTable2.Rows)
-            {
-                UserDropDownModel model = new UserDropDownModel();
-                model.UserID = Convert.ToInt32(data["UserID"]);
-                model.UserName = data["UserName"].ToString();
-                UserList.Add(model);
-            }
-            ViewBag.UserList = UserList;
-        }
-
+        
         public void QuizDropDown()
         {
             string connectionString = this.configuration.GetConnectionString("ConnectionString");
@@ -141,7 +118,6 @@ namespace My_Project_dotNET.Controllers
             SqlCommand command2 = connection.CreateCommand();
             command2.CommandType = System.Data.CommandType.StoredProcedure;
             command2.CommandText = "PR_MST_Quiz_Fill_Dropdown";
-            //command2.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariable.UserID();
             SqlDataReader reader2 = command2.ExecuteReader();
             DataTable dataTable2 = new DataTable();
             dataTable2.Load(reader2);
@@ -164,7 +140,6 @@ namespace My_Project_dotNET.Controllers
             SqlCommand command2 = connection.CreateCommand();
             command2.CommandType = System.Data.CommandType.StoredProcedure;
             command2.CommandText = "PR_MST_Question_Fill_Dropdown";
-            //command2.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariable.UserID();
             SqlDataReader reader2 = command2.ExecuteReader();
             DataTable dataTable2 = new DataTable();
             dataTable2.Load(reader2);
