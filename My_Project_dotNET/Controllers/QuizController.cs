@@ -87,12 +87,11 @@ namespace My_Project_dotNET.Controllers
             foreach (DataRow dataRow in table.Rows)
             {
                 model.QuizID = Convert.ToInt32(dataRow["QuizID"]);
-                Console.WriteLine($"QuizID: {model.QuizID}");
 
                 model.QuizName = dataRow["QuizName"].ToString();
                 model.TotalQuestions = Convert.ToInt32(dataRow["TotalQuestions"]);
                 model.QuizDate = Convert.ToDateTime(dataRow["QuizDate"]);
-                model.UserID = Convert.ToInt32(CommonVariables.UserID());
+                model.UserID = Convert.ToInt32(My_Project_dotNET.model.UserID());
                 model.Created = dataRow["Created"] != DBNull.Value ? Convert.ToDateTime(dataRow["Created"]) : DateTime.UtcNow;
                 model.Modified = dataRow["Modified"] != DBNull.Value ? Convert.ToDateTime(dataRow["Modified"]) : DateTime.UtcNow;
             }
@@ -124,7 +123,7 @@ namespace My_Project_dotNET.Controllers
                 command.Parameters.Add("@TotalQuestions", SqlDbType.Int).Value = model.TotalQuestions;
 
                 command.Parameters.Add("@QuizDate", SqlDbType.DateTime).Value = model.QuizDate;
-                command.Parameters.Add("@UserId", SqlDbType.Int).Value = CommonVariables.UserID();
+                command.Parameters.Add("@UserId", SqlDbType.Int).Value = My_Project_dotNET.model.UserID();
                 command.ExecuteNonQuery();
                 return RedirectToAction("QuizList");
             }
