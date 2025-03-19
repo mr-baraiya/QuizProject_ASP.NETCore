@@ -59,7 +59,7 @@ namespace My_Project_dotNET.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddQuestion(int? QuestionID)
+        public IActionResult AddQuestion(int QuestionID)
         {
             if (QuestionID == null)
             {
@@ -96,9 +96,9 @@ namespace My_Project_dotNET.Controllers
                 model.CorrectOption = dataRow["CorrectOption"].ToString();
                 model.QuestionMarks = Convert.ToInt32(dataRow["QuestionMarks"]);
                 model.IsActive = Convert.ToBoolean(dataRow["IsActive"]);
-                model.UserID = Convert.ToInt32(CommonVariables.UserID());
-                model.Created = dataRow["Created"] != DBNull.Value ? Convert.ToDateTime(dataRow["Created"]) : DateTime.UtcNow;
-                model.Modified = dataRow["Modified"] != DBNull.Value ? Convert.ToDateTime(dataRow["Modified"]) : DateTime.UtcNow;
+                model.UserID = Convert.ToInt32(My_Project_dotNET.model.UserID());
+                //model.Created = dataRow["Created"] != DBNull.Value ? Convert.ToDateTime(dataRow["Created"]) : DateTime.UtcNow;
+                //model.Modified = dataRow["Modified"] != DBNull.Value ? Convert.ToDateTime(dataRow["Modified"]) : DateTime.UtcNow;
             }
 
             QuestionLevelDropDown();
@@ -107,49 +107,72 @@ namespace My_Project_dotNET.Controllers
 
         public IActionResult QuestionAddEdit(QuestionModel model)
         {
+            // Set UserID explicitly
+            model.UserID = Convert.ToInt32(My_Project_dotNET.model.UserID());
+            Console.WriteLine($"Set UserID in Model: {model.UserID}");
+
+            // Debugging: Check ModelState before proceeding
             if (ModelState.IsValid)
             {
-                Console.WriteLine($"QuestionID: {model.QuestionID}"); // in update it is still zero
+                Console.WriteLine("ModelState is NOT valid!");
+                foreach (var key in ModelState.Keys)
+                {
+                    foreach (var error in ModelState[key].Errors)
+                    {
+                        Console.WriteLine($"Field: {key}, Error: {error.ErrorMessage}");
+                    }
+                }
+                QuestionLevelDropDown();
+                return RedirectToAction("QuestionList"); // Return view with errors to fix
+            }
+
+            try
+            {
+                Console.WriteLine($"QuestionID: {model.QuestionID}");
 
                 string connectionString = this.configuration.GetConnectionString("ConnectionString");
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Open();
-                SqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.StoredProcedure;
-
-                if (model.QuestionID == 0)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.CommandText = "PR_MST_Question_Insert";
-                }
-                else
-                {
-                    command.CommandText = "PR_MST_Question_Update";
-                    command.Parameters.Add("@QuestionID", SqlDbType.Int).Value = model.QuestionID;
-                }
-                command.Parameters.Add("@QuestionText", SqlDbType.VarChar).Value = model.QuestionText;
-                command.Parameters.Add("@OptionA", SqlDbType.VarChar).Value = model.OptionA;
-                command.Parameters.Add("@OptionB", SqlDbType.VarChar).Value = model.OptionB;
-                command.Parameters.Add("@OptionC", SqlDbType.VarChar).Value = model.OptionC;
-                command.Parameters.Add("@OptionD", SqlDbType.VarChar).Value = model.OptionD;
+                    connection.Open();
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("@QuestionLevelID", SqlDbType.Int).Value = model.QuestionLevelID;
-                command.Parameters.Add("@CorrectOption", SqlDbType.VarChar).Value = model.CorrectOption;
-                command.Parameters.Add("@QuestionMarks", SqlDbType.Int).Value = model.QuestionMarks;
-                command.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariables.UserID();
+                        if (model.QuestionID == 0)
+                        {
+                            command.CommandText = "PR_MST_Question_Insert";
+                        }
+                        else
+                        {
+                            command.CommandText = "PR_MST_Question_Update";
+                            command.Parameters.Add("@QuestionID", SqlDbType.Int).Value = model.QuestionID;
+                        }
 
-                command.ExecuteNonQuery();
+                        command.Parameters.Add("@QuestionText", SqlDbType.VarChar).Value = model.QuestionText;
+                        command.Parameters.Add("@OptionA", SqlDbType.VarChar).Value = model.OptionA;
+                        command.Parameters.Add("@OptionB", SqlDbType.VarChar).Value = model.OptionB;
+                        command.Parameters.Add("@OptionC", SqlDbType.VarChar).Value = model.OptionC;
+                        command.Parameters.Add("@OptionD", SqlDbType.VarChar).Value = model.OptionD;
+                        command.Parameters.Add("@QuestionLevelID", SqlDbType.Int).Value = model.QuestionLevelID;
+                        command.Parameters.Add("@CorrectOption", SqlDbType.VarChar).Value = model.CorrectOption;
+                        command.Parameters.Add("@QuestionMarks", SqlDbType.Int).Value = model.QuestionMarks;
+                        command.Parameters.Add("@UserID", SqlDbType.Int).Value = model.UserID; // Set UserID
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+
                 return RedirectToAction("QuestionList");
             }
-            if (!ModelState.IsValid)
+            catch (Exception ex)
             {
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    Console.WriteLine($"Error: {error.ErrorMessage}");
-                }
+                Console.WriteLine($"Exception: {ex.Message}");
+                ModelState.AddModelError("", "An error occurred while saving the question.");
+                QuestionLevelDropDown();
+                return RedirectToAction("QuestionList");
             }
-            QuestionLevelDropDown();
-            return RedirectToAction("QuestionList");
         }
+
 
         [HttpGet]
         public void QuestionLevelDropDown()
