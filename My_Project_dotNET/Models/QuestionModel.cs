@@ -41,7 +41,7 @@ namespace My_Project_dotNET.Models
 
         public bool IsActive { get; set; } = true; // Default: Active
 
-        [Required(ErrorMessage = "User ID is required.")]
+        [Required(ErrorMessage = "Please select a user.")]
         [Range(1, int.MaxValue, ErrorMessage = "User ID must be a valid positive number.")]
         public int UserID { get; set; }
 
