@@ -97,7 +97,7 @@ namespace My_Project_dotNET.Controllers
 
                 command.Parameters.Add("@UserId", SqlDbType.Int).Value = model.UserID;
 
-                command.Parameters.Add("@UserID", SqlDbType.Int).Value = CommonVariables.UserID();
+                command.Parameters.Add("@UserID", SqlDbType.Int).Value = My_Project_dotNET.model.UserID();
 
                 command.Parameters.Add("@Modified", SqlDbType.DateTime).Value = model.Modified;
                 command.ExecuteNonQuery();
