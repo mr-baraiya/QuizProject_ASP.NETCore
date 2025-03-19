@@ -1,11 +1,11 @@
 ﻿namespace My_Project_dotNET
 {
-    public static class CommonVariables
+    public static class model
     {
         //Provides access to the current Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext
         private static IHttpContextAccessor _httpContextAccessor;
 
-        static CommonVariables()
+        static model()
         {
             _httpContextAccessor = new HttpContextAccessor();
         }
