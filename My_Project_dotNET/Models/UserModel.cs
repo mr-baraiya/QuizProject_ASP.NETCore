@@ -48,4 +48,21 @@ namespace My_Project_dotNET.Models
         [RegularExpression(@"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$", ErrorMessage = "Password must contain at least one letter, one number, and one special character.")]
         public string Password { get; set; }
     }
+    public class ChangePasswordModel
+    {
+        [Required(ErrorMessage = "Current Password is required")]
+        [DataType(DataType.Password)]
+        public string CurrentPassword { get; set; }
+
+        [Required(ErrorMessage = "New Password is required")]
+        [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters long")]
+        public string NewPassword { get; set; }
+
+        [Required(ErrorMessage = "Please confirm your new password")]
+        [DataType(DataType.Password)]
+        [Compare("NewPassword", ErrorMessage = "Passwords do not match")]
+        public string ConfirmPassword { get; set; }
+    }
+
 }
