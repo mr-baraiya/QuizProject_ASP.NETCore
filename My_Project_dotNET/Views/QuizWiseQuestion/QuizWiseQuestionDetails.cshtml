@@ -1,4 +1,7 @@
-﻿<div class="pagetitle">
+﻿@model QuizDetailsViewModel
+
+
+<div class="pagetitle">
     <h1>Quiz Wise Question Details</h1>
     <nav>
         <ol class="breadcrumb">
@@ -64,10 +67,10 @@
         </div>
         <div class="row mb-3">
             <div class="col-sm-3">
-                Quiz Name : English Grammer
+                Quiz Name : @Model.QuizName
             </div>
             <div class="col-sm-3">
-                Total Questions in Quiz : 10
+                Total Questions : @Model.TotalQuestions
             </div>
         </div> <!-- End of Header -->
         <table class="table datatable" cellspacing="5" cellpadding="10">
@@ -85,116 +88,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Who was the first President of the USA?</td>
-                    <td>George Washington</td>
-                    <td>Abraham Lincoln</td>
-                    <td>John Adams</td>
-                    <td>Thomas Jefferson</td>
-                    <td>A</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the capital of France?</td>
-                    <td>Berlin</td>
-                    <td>Madrid</td>
-                    <td>Paris</td>
-                    <td>Lisbon</td>
-                    <td>C</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which planet is known as the Red Planet?</td>
-                    <td>Earth</td>
-                    <td>Mars</td>
-                    <td>Jupiter</td>
-                    <td>Venus</td>
-                    <td>B</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the national animal of India?</td>
-                    <td>Lion</td>
-                    <td>Elephant</td>
-                    <td>Tiger</td>
-                    <td>Leopard</td>
-                    <td>C</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which year did World War II end?</td>
-                    <td>1942</td>
-                    <td>1945</td>
-                    <td>1948</td>
-                    <td>1950</td>
-                    <td>A</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the longest river in the world?</td>
-                    <td>Amazon</td>
-                    <td>Nile</td>
-                    <td>Yangtze</td>
-                    <td>Mississippi</td>
-                    <td>B</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Who wrote the play "Romeo and Juliet"?</td>
-                    <td>Shakespeare</td>
-                    <td>Moliere</td>
-                    <td>Tennessee Williams</td>
-                    <td>Homer</td>
-                    <td>A</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Which continent has the largest population?</td>
-                    <td>Africa</td>
-                    <td>Asia</td>
-                    <td>Europe</td>
-                    <td>South America</td>
-                    <td>B</td>
-                    <td>3</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>Who discovered gravity?</td>
-                    <td>Newton</td>
-                    <td>Einstein</td>
-                    <td>Galileo</td>
-                    <td>Kepler</td>
-                    <td>A</td>
-                    <td>2</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>What is the currency of Japan?</td>
-                    <td>Dollar</td>
-                    <td>Yen</td>
-                    <td>Peso</td>
-                    <td>Rupee</td>
-                    <td>B</td>
-                    <td>1</td>
-                    <td><button class="btn btn-outline-danger"><i class="bi bi-x"></i> Delete</button></td>
-                </tr>
+                @if (Model.Questions != null && Model.Questions.Any())
+                {
+                    foreach (var question in Model.Questions)
+                    {
+                        <tr>
+                            <td><input type="checkbox" name="selectedQuestions" value="@question.QuestionId" /></td>
+                            <td>@question.QuestionText</td>
+                            <td>@question.OptionA</td>
+                            <td>@question.OptionB</td>
+                            <td>@question.OptionC</td>
+                            <td>@question.OptionD</td>
+                            <td>@question.CorrectOption</td>
+                            <td>@question.QuestionMarks</td>
+                            <td>
+                                <a asp-controller="QuizWiseQuestion" asp-action="QuizWiseQuestionDelete" asp-route-QuizWiseQuestionsID="@question.QuizWiseQuestionId"
+                                   class="mx-1 btn btn-outline-danger btn-xs" data-bs-toggle="tooltip" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center">No questions found for this quiz.</td>
+                    </tr>
+                }
             </tbody>
         </table><!-- End of Table -->
         <div class="text-start">
