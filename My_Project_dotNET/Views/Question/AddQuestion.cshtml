@@ -126,12 +126,7 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label"><span class="text-danger">*</span>Question Marks</label>
                 <div class="col-sm">
-                    <select asp-for="QuestionMarks" class="form-select">
-                        <option selected>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
+                    <input type="number" class="col-sm form-control" asp-for="QuestionMarks" placeholder="Enter Question Marks" />
                     <span asp-validation-for="QuestionMarks" class="text-danger"></span>
                 </div>
             </div>
