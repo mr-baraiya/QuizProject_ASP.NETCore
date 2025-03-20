@@ -99,7 +99,7 @@ namespace My_Project_dotNET.Controllers
                 {
                     model.QuestionLevelID = Convert.ToInt32(dataRow["QuestionLevelID"]);
                     model.QuestionLevel = dataRow["QuestionLevel"].ToString();
-                    model.UserID = Convert.ToInt32(model.UserID);
+                    model.UserID = Convert.ToInt32(My_Project_dotNET.model.UserID());
                 }
                 return View(model);
             }
@@ -117,7 +117,7 @@ namespace My_Project_dotNET.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     string connectionString = this.configuration.GetConnectionString("ConnectionString");
                     SqlConnection connection = new SqlConnection(connectionString);
@@ -135,7 +135,7 @@ namespace My_Project_dotNET.Controllers
                         command.Parameters.Add("@QuestionLevelID", SqlDbType.Int).Value = model.QuestionLevelID;
                     }
                     command.Parameters.Add("@QuestionLevel", SqlDbType.VarChar).Value = model.QuestionLevel;
-                    command.Parameters.Add("@UserID", SqlDbType.Int).Value = model.UserID;
+                    command.Parameters.Add("@UserID", SqlDbType.Int).Value = My_Project_dotNET.model.UserID();
                     command.ExecuteNonQuery();
                 }
                 return RedirectToAction("QuestionLevelList");
