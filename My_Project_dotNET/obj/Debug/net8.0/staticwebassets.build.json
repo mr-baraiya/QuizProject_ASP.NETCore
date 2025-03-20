@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s0OQpwdBYQ6GAuX+CwFhct/mvv+p6Q90bk0YxNV4+4M=",
+  "Hash": "DIvza9q23cj8aUNlJ7qhPx+kFePY+jZgfmzLhvUy3JY=",
   "Source": "My_Project_dotNET",
   "BasePath": "_content/My_Project_dotNET",
   "Mode": "Default",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j06y2d3pyu",
-      "Integrity": "DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=",
+      "Fingerprint": "ulka12jiw9",
+      "Integrity": "0h85ryldHGI1uPRczDhTqmO6Dk0w3+YXqQB1hbVoM7k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\logo.png"
@@ -10868,51 +10868,6 @@
       ]
     },
     {
-      "Route": "assets/img/logo.j06y2d3pyu.png",
-      "AssetFile": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\img\\logo.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5483"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 03:54:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "j06y2d3pyu"
-        },
-        {
-          "Name": "label",
-          "Value": "assets/img/logo.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="
-        }
-      ]
-    },
-    {
       "Route": "assets/img/logo.png",
       "AssetFile": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\img\\logo.png",
       "Selectors": [],
@@ -10923,7 +10878,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5483"
+          "Value": "619558"
         },
         {
           "Name": "Content-Type",
@@ -10931,11 +10886,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\""
+          "Value": "\"0h85ryldHGI1uPRczDhTqmO6Dk0w3+YXqQB1hbVoM7k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 03:54:16 GMT"
+          "Value": "Tue, 18 Mar 2025 16:13:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10945,7 +10900,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DaeeiyE+KDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="
+          "Value": "sha256-0h85ryldHGI1uPRczDhTqmO6Dk0w3+YXqQB1hbVoM7k="
+        }
+      ]
+    },
+    {
+      "Route": "assets/img/logo.ulka12jiw9.png",
+      "AssetFile": "D:\\VS_CODES\\.NET_Code\\QuizProject_ASP.NETCore\\My_Project_dotNET\\wwwroot\\assets\\img\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "619558"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0h85ryldHGI1uPRczDhTqmO6Dk0w3+YXqQB1hbVoM7k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 16:13:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ulka12jiw9"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/img/logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0h85ryldHGI1uPRczDhTqmO6Dk0w3+YXqQB1hbVoM7k="
         }
       ]
     },

@@ -24,4 +24,24 @@ namespace My_Project_dotNET.Models
 
         public DateTime Modified { get; set; } = DateTime.UtcNow; // Auto-update on insert/update
     }
+    public class QuizDetailsViewModel
+    {
+        public string QuizName { get; set; }
+        public int TotalQuestions { get; set; }
+        public List<QuizQuestionViewModel> Questions { get; set; }
+    }
+
+    public class QuizQuestionViewModel
+    {
+        public int QuestionId { get; set; }
+        public int QuizWiseQuestionId { get; set; }
+        public string QuestionText { get; set; }
+        public string OptionA { get; set; }
+        public string OptionB { get; set; }
+        public string OptionC { get; set; }
+        public string OptionD { get; set; }
+        public string CorrectOption { get; set; }
+        public int QuestionMarks { get; set; }
+    }
+
 }

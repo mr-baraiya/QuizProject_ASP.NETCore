@@ -48,17 +48,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NHfdnYxqKU840JVme5w\u002BH7wp3wSgzdlC7oWkzfVfUKc="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"610"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022NHfdnYxqKU840JVme5w\u002BH7wp3wSgzdlC7oWkzfVfUKc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 16 Jan 2025 11:00:46 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/My_Project_dotNET/assets/img/logo.j06y2d3pyu.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\img\logo.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j06y2d3pyu"},{"Name":"integrity","Value":"sha256-DaeeiyE\u002BKDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="},{"Name":"label","Value":"_content/My_Project_dotNET/assets/img/logo.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5483"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022DaeeiyE\u002BKDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\u0022"},{"Name":"Last-Modified","Value":"Thu, 13 Mar 2025 03:54:16 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/My_Project_dotNET/assets/img/logo.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\img\logo.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DaeeiyE\u002BKDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5483"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022DaeeiyE\u002BKDPPqHRBO5QWyfBzLbS7YlEOunDgF40sirs=\u0022"},{"Name":"Last-Modified","Value":"Thu, 13 Mar 2025 03:54:16 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0h85ryldHGI1uPRczDhTqmO6Dk0w3\u002BYXqQB1hbVoM7k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"619558"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00220h85ryldHGI1uPRczDhTqmO6Dk0w3\u002BYXqQB1hbVoM7k=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Mar 2025 16:13:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/My_Project_dotNET/assets/img/logo.ulka12jiw9.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\img\logo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ulka12jiw9"},{"Name":"integrity","Value":"sha256-0h85ryldHGI1uPRczDhTqmO6Dk0w3\u002BYXqQB1hbVoM7k="},{"Name":"label","Value":"_content/My_Project_dotNET/assets/img/logo.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"619558"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00220h85ryldHGI1uPRczDhTqmO6Dk0w3\u002BYXqQB1hbVoM7k=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Mar 2025 16:13:07 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/My_Project_dotNET/assets/img/messages-1.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\img\messages-1.jpg'))</AssetFile>
