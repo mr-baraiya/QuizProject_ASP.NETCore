@@ -67,15 +67,17 @@
                     <div class="row mb-3">
                         <hr />
                     </div>
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-sm-2 text-primary bg-primary-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
-                            <i class="bi bi-cart"></i>
+                    <a href="@Url.Action("QuizList", "Quiz")" class="text-decoration-none text-dark">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-sm-2 text-primary bg-primary-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                                <i class="bi bi-cart"></i>
+                            </div>
+                            <div class="col-sm">
+                                @* <h4>@Model.TotalQuizzes</h4> *@
+                                <h4>40</h4>
+                            </div>
                         </div>
-                        <div class="col-sm">
-                            @* <h4>@Model.TotalQuizzes</h4> *@
-                            <h4>10</h4>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div><!-- Total Quizzes End -->
             <div class="col-sm-4">
@@ -88,16 +90,19 @@
                     <div class="row mb-3">
                         <hr />
                     </div>
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-sm-2 text-warning bg-warning-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
-                            <i class="bi bi-question-circle"></i>
+                    <a href="@Url.Action("QuestionList", "Question")" class="text-decoration-none text-dark">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-sm-2 text-warning bg-warning-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                                <i class="bi bi-question-circle"></i>
+                            </div>
+                            <div class="col-sm">
+                                @* <h4>@Model.TotalQuestions</h4> *@
+                                <h4>10</h4>
+                            </div>
                         </div>
-                        <div class="col-sm">
-                            @* <h4>@Model.TotalQuestions</h4> *@
-                            <h4>10</h4>
-                        </div>
-                    </div>
+                    </a>
                 </div>
+                
             </div><!-- Total Questions End -->
             <div class="col-sm-4">
                 <div class="container bg-white w-100 p-2 border border-dark border-1 rounded">
@@ -109,16 +114,18 @@
                     <div class="row mb-3">
                         <hr />
                     </div>
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-sm-2 text-success bg-success-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
-                            <i class="bi bi-bar-chart"></i>
+                    <a href="@Url.Action("QuestionLevelList", "QuestionLevel")" class="text-decoration-none text-dark">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-sm-2 text-success bg-success-subtle p-2 ms-2 d-flex justify-content-center align-items-center fs-5 border rounded-circle">
+                                <i class="bi bi-bar-chart"></i>
+                            </div>
+                            <div class="col-sm">
+                                <h4>5</h4>
+                            </div>
                         </div>
-                        <div class="col-sm">
-                            @* <h4>@Model.TotalQuestionLevels</h4> *@
-                            <h4>10</h4>
-                        </div>
-                    </div>
+                    </a>
                 </div>
+               
             </div><!-- Total Question Levels End -->
         </div>
 
